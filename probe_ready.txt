@@ -1,0 +1,162 @@
+READY=text28/Çý¶¯ÏµÍ³/Subsystem/ÖÆ¶¯Óë´ýÊ»
+
+[text28:597] text28/Çý¶¯ÏµÍ³/Subsystem/ÖÆ¶¯Óë´ýÊ»
+ | SubSystem | 
+[text28:668] ÖÆ¶¯
+ | Inport | 
+[text28:600] Constant | Constant | Value=0; 
+[text28:601] Constant1 | Constant | Value=1; 
+[text28:3407] Logical
+Operator | Logic | 
+[text28:602] MeaModule | SubSystem | 
+[text28:602:1989] MeaModule/In | Inport | 
+[text28:602:1990] MeaModule/Out | Outport | 
+[text28:610] MeaModule1 | SubSystem | 
+[text28:610:1989] MeaModule1/In | Inport | 
+[text28:610:1990] MeaModule1/Out | Outport | 
+[text28:3400] MeaModule2 | SubSystem | 
+[text28:3400:1989] MeaModule2/In | Inport | 
+[text28:3400:1990] MeaModule2/Out | Outport | 
+[text28:3405] MeaModule3 | SubSystem | 
+[text28:3405:1989] MeaModule3/In | Inport | 
+[text28:3405:1990] MeaModule3/Out | Outport | 
+[text28:3406] MeaModule4 | SubSystem | 
+[text28:3406:1989] MeaModule4/In | Inport | 
+[text28:3406:1990] MeaModule4/Out | Outport | 
+[text28:3419] MeaModule5 | SubSystem | 
+[text28:3419:1989] MeaModule5/In | Inport | 
+[text28:3419:1990] MeaModule5/Out | Outport | 
+[text28:3420] Product | Product | Inputs=2; 
+[text28:603] Saturation | Saturate | UpperLimit=1; LowerLimit=0; 
+[text28:604] Sum | Sum | Inputs=|++; 
+[text28:605] Switch | Switch | Criteria=u2 > Threshold; Threshold=0; 
+[text28:3396] SwitchInput | S-Function | FunctionName=ec55xx_swislb
+[text28:606] Unit Delay | UnitDelay | InitialCondition=0; 
+[text28:607] ´ýÊ»°´¼ü | SubSystem | 
+[text28:608] ´ýÊ»°´¼ü/Constant | Constant | Value=1; 
+[text28:609] ´ýÊ»°´¼ü/Constant1 | Constant | Value=0; 
+[text28:3401] ´ýÊ»°´¼ü/MeaModule3 | SubSystem | 
+[text28:3401:1989] ´ýÊ»°´¼ü/MeaModule3/In | Inport | 
+[text28:3401:1990] ´ýÊ»°´¼ü/MeaModule3/Out | Outport | 
+[text28:995] ´ýÊ»°´¼ü/PowerDriverSwitchDiagnosis | S-Function | FunctionName=ec55xx_pdsdslb
+[text28:611] ´ýÊ»°´¼ü/Switch | Switch | Criteria=u2 > Threshold; Threshold=0; 
+[text28:613] ´ýÊ»°´¼ü/´ýÊ»in | Outport | 
+[text28:669] ´ýÊ»¼¤»î | SubSystem | 
+[text28:670] ´ýÊ»¼¤»î/ÖÆ¶¯ | Inport | 
+[text28:671] ´ýÊ»¼¤»î/°´Å¥ | Inport | 
+[text28:672] ´ýÊ»¼¤»î/If | If | IfExpression=u1 > 0; ElseIfExpressions=; 
+[text28:673] ´ýÊ»¼¤»î/If Action
+Subsystem | SubSystem | 
+[text28:674] ´ýÊ»¼¤»î/If Action
+Subsystem/Action Port | ActionPort | 
+[text28:675] ´ýÊ»¼¤»î/If Action
+Subsystem/Constant | Constant | Value=1; 
+[text28:676] ´ýÊ»¼¤»î/If Action
+Subsystem/Out1 | Outport | 
+[text28:677] ´ýÊ»¼¤»î/If Action
+Subsystem1 | SubSystem | 
+[text28:678] ´ýÊ»¼¤»î/If Action
+Subsystem1/Action Port | ActionPort | 
+[text28:679] ´ýÊ»¼¤»î/If Action
+Subsystem1/Constant | Constant | Value=0; 
+[text28:680] ´ýÊ»¼¤»î/If Action
+Subsystem1/Out1 | Outport | 
+[text28:681] ´ýÊ»¼¤»î/If Action
+Subsystem2 | SubSystem | 
+[text28:682] ´ýÊ»¼¤»î/If Action
+Subsystem2/Action Port | ActionPort | 
+[text28:683] ´ýÊ»¼¤»î/If Action
+Subsystem2/Constant | Constant | Value=1; 
+[text28:684] ´ýÊ»¼¤»î/If Action
+Subsystem2/Out1 | Outport | 
+[text28:685] ´ýÊ»¼¤»î/If Action
+Subsystem3 | SubSystem | 
+[text28:686] ´ýÊ»¼¤»î/If Action
+Subsystem3/Action Port | ActionPort | 
+[text28:687] ´ýÊ»¼¤»î/If Action
+Subsystem3/Constant | Constant | Value=0; 
+[text28:688] ´ýÊ»¼¤»î/If Action
+Subsystem3/Out1 | Outport | 
+[text28:689] ´ýÊ»¼¤»î/If1 | If | IfExpression=u1 > 0; ElseIfExpressions=; 
+[text28:690] ´ýÊ»¼¤»î/Logical
+Operator | Logic | 
+[text28:691] ´ýÊ»¼¤»î/Merge | Merge | 
+[text28:692] ´ýÊ»¼¤»î/Merge1 | Merge | 
+[text28:693] ´ýÊ»¼¤»î/Out1 | Outport | 
+[text28:614] ÃùµÑ1 | SubSystem | 
+[text28:615] ÃùµÑ1/ÃùµÑ
+ | Inport | 
+[text28:3426] ÃùµÑ1/°²È«»ØÂ·
+ | Inport | 
+[text28:616] ÃùµÑ1/If | If | IfExpression=u1 > 0; ElseIfExpressions=; 
+[text28:617] ÃùµÑ1/If Action
+Subsystem | SubSystem | 
+[text28:618] ÃùµÑ1/If Action
+Subsystem/Action Port | ActionPort | 
+[text28:619] ÃùµÑ1/If Action
+Subsystem/Constant2 | Constant | Value=1; 
+[text28:620] ÃùµÑ1/If Action
+Subsystem/Out1 | Outport | 
+[text28:621] ÃùµÑ1/If Action
+Subsystem1 | SubSystem | 
+[text28:622] ÃùµÑ1/If Action
+Subsystem1/Action Port | ActionPort | 
+[text28:623] ÃùµÑ1/If Action
+Subsystem1/Constant | Constant | Value=0; 
+[text28:624] ÃùµÑ1/If Action
+Subsystem1/Out1 | Outport | 
+[text28:625] ÃùµÑ1/Merge | Merge | 
+[text28:626] ÃùµÑ1/ÃùµÑ | SubSystem | 
+[text28:627] ÃùµÑ1/ÃùµÑ/In1 | Inport | 
+[text28:3425] ÃùµÑ1/ÃùµÑ/°²È«»ØÂ· | Inport | 
+[text28:628] ÃùµÑ1/ÃùµÑ/Constant3 | Constant | Value=1; 
+[text28:629] ÃùµÑ1/ÃùµÑ/Data Type Conversion | DataTypeConversion | 
+[text28:630] ÃùµÑ1/ÃùµÑ/Data Type Conversion1 | DataTypeConversion | 
+[text28:631] ÃùµÑ1/ÃùµÑ/If | If | IfExpression=u1>0&u1<150; ElseIfExpressions=; 
+[text28:632] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem | SubSystem | 
+[text28:633] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem/Action Port | ActionPort | 
+[text28:634] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem/Constant | Constant | Value=1; 
+[text28:635] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem/Out1 | Outport | 
+[text28:636] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem1 | SubSystem | 
+[text28:637] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem1/Action Port | ActionPort | 
+[text28:638] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem1/Constant | Constant | Value=0; 
+[text28:639] ÃùµÑ1/ÃùµÑ/If Action
+Subsystem1/Out1 | Outport | 
+[text28:640] ÃùµÑ1/ÃùµÑ/Merge | Merge | 
+[text28:3424] ÃùµÑ1/ÃùµÑ/Product | Product | Inputs=2; 
+[text28:641] ÃùµÑ1/ÃùµÑ/Sum | Sum | Inputs=|++; 
+[text28:642] ÃùµÑ1/ÃùµÑ/Unit Delay | UnitDelay | InitialCondition=0; 
+[text28:643] ÃùµÑ1/ÃùµÑ/·äÃùÆ÷ | S-Function | FunctionName=ec55xx_pdpslb
+[text28:644] RES | Outport | 
+[text28:645] EN | Outport | 
+
+MOTOR=text28/Çý¶¯ÏµÍ³/Subsystem/µç»ú²âËÙ
+[text28:1817] CANReceive | S-Function | FunctionName=ec55xx_canreceiveslb
+[text28:1837] ReceiveMessages/Livecounter_Ter | Terminator | 
+[text28:1867] ReceiveMessages/resive1/LivecounterCS | ArithShift | 
+[text28:1868] ReceiveMessages/resive1/LivecounterCS1 | ArithShift | 
+[text28:1869] ReceiveMessages/resive1/LivecounterConS | Constant | Value='1'
+[text28:1870] ReceiveMessages/resive1/LivecounterMinus | UnaryMinus | 
+[text28:1871] ReceiveMessages/resive1/LivecounterROP | RelationalOperator | Operator=>=
+[text28:1872] ReceiveMessages/resive1/LivecounterSW | Switch | Criteria=u2 ~= 0
+[text28:1873] ReceiveMessages/resive1/Livecounter_Ad | Sum | Inputs=++
+[text28:1874] ReceiveMessages/resive1/Livecounter_Convert | DataTypeConversion | 
+[text28:1875] ReceiveMessages/resive1/Livecounter_F | Gain | 
+[text28:1876] ReceiveMessages/resive1/Livecounter_L | S-Function | FunctionName=sfix_bitop
+[text28:1877] ReceiveMessages/resive1/Livecounter_O | Constant | Value='0'
+[text28:1878] ReceiveMessages/resive1/Livecounter_S | ArithShift | 
+[text28:1879] ReceiveMessages/resive1/Livecounter_Sub | SubSystem | 
+[text28:1880] ReceiveMessages/resive1/Livecounter_Sub/In1 | Inport | 
+[text28:1881] ReceiveMessages/resive1/Livecounter_Sub/Out1 | Outport | 
+[text28:1882] ReceiveMessages/resive1/Livecounter_sat | Saturate | Upper='15' Lower='0'
+[text28:1883] ReceiveMessages/resive1/Livecountercv | DataTypeConversion | 
+[text28:1884] ReceiveMessages/resive1/Livecountersubcon | Sum | Inputs=+-
+[text28:1956] ReceiveMessages/resive1/Livecounter_Out | Outport | 
+PROBE_DONE

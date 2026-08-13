@@ -1,0 +1,174 @@
+text28/Function-Call
+Subsystem2/CANTransmit | ec55xx_cantransmitslb | canmodule=A; canbuffer=8; canmessageid=hex2dec('3E4'); canmessagetype=Standard(11-bit ID); datalength=8; sampletime=-1; 
+text28/Function-Call
+Subsystem2/xieyi/Motor_toque/Motor_toque_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/Speed/Speed_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or1 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or2 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or3 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or4 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or5 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or6 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or7 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem2/xieyi/or8 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/CANTransmit | ec55xx_cantransmitslb | canmodule=A; canbuffer=8; canmessageid=hex2dec('015'); canmessagetype=Standard(11-bit ID); datalength=8; sampletime=-1; 
+text28/Function-Call
+Subsystem3/dianchi/BatAlmLv/BatAlmLv_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/BatCurrent/BatCurrent_And | sfix_bitop | logicop=AND; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/BatCurrent/BatCurrent_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/BatSoc/BatSoc_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/BatState/BatState_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/BatVoltage/BatVoltage_And | sfix_bitop | logicop=AND; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/BatVoltage/BatVoltage_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or1 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or2 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or3 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or4 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or5 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or6 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or7 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem3/dianchi/or8 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=5; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/CAN检测 | ec55xx_canreceiveslb | canmodule=A; canbuffer=0; canmessageid=hex2dec('186040F3'); canmessagetype=Extended(29-bit ID); datalength=8; sampletime=-1; 
+text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatAlmLv_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=15; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatCurrent_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatLife_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatSoc_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatState_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=240; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatVoltage_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BtaSOH_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem4/可视/断can线亮灯3 | ec55xx_pdpslb | channel=58: O_PWM1_LS1A8; sampletime=-1; 
+text28/Function-Call
+Subsystem7/MCU STATUS 2 | ec55xx_canreceiveslb | canmodule=B; canbuffer=0; canmessageid=hex2dec('CFF0109 '); canmessagetype=Extended(29-bit ID); datalength=8; sampletime=-1; 
+text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Fail_Grade_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=15; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Live_counter_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=240; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/MCU_temperature_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Motor_Temperature_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=255; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Torque_Limit_High_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Torque_Limit_Low_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/Function-Call
+Subsystem7/PowerDriverPWM | ec55xx_pdpslb | channel=118: O_PWM12_HS2A9; sampletime=-1; 
+text28/RapidECUSetting1/ADC | ec55xx_adcbsb | adcenable=on; 
+text28/RapidECUSetting1/BL/Function-Call
+Subsystem/CANReceive1 | ec55xx_canreceiveslb | canmodule=C; canbuffer=1; canmessageid=hex2dec('0116'); canmessagetype=Standard(11-bit ID); datalength=8; sampletime=-1; 
+text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/If Action
+Subsystem/BootLoader | ec55xx_bootloaderslb | sampletime=-1; 
+text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/If Action
+Subsystem/CPUReset | ec55xx_cpuresetslb | sampletime=-1; 
+text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/If Action
+Subsystem1/CANTransmit | ec55xx_cantransmitslb | canmodule=C; canbuffer=9; canmessageid=hex2dec('0251'); canmessagetype=Standard(11-bit ID); datalength=1; sampletime=-1; 
+text28/RapidECUSetting1/BL/ReceiveandTransmitInterrupt | ec55xx_caninterruptslb1 | caninterruptmodule=C; caninterrupttype=Buffer1 (Receive); 
+text28/RapidECUSetting1/CAN | ec55xx_canbsb | aena=on; apdf=1; atseg1=3; atseg2=3; aptseg=6; asjw=2; asam=Sample_one_time; aeri=off; aboi=off; acmt=Extended(29-bit ID); bena=on; bpdf=0; btseg1=3; btseg2=3; bptseg=6; bsjw=2; bsam=Sample_one_time; beri=off; bboi=off; bcmt=Extended(29-bit ID); cena=on; cpdf=0; ctseg1=3; ctseg2=3; cptseg=6; csjw=2; csam=Sample_one_time; ceri=off; cboi=off; ccmt=Standard(11-bit ID); 
+text28/RapidECUSetting1/CCP | ec55xx_ccpbsb | ccpenable=on; stationaddress=hex2dec('0'); idtype=Extended(29-bit ID); croid=hex2dec('100'); dtoid=hex2dec('101'); daqnum=5; odtnum=30; flashpenable=off; 
+text28/RapidECUSetting1/CPU | ec55xx_cpubsb | oscfre=8 MHz; wdgenable=on; counter=104ms; 
+text28/RapidECUSetting1/DAQ/daq100ms/CCPDAQ | ec55xx_ccpslb1 | eventchannel=3; sampletime=-1; 
+text28/RapidECUSetting1/DAQ/daq10ms/CCPDAQ | ec55xx_ccpslb1 | eventchannel=1; sampletime=-1; 
+text28/RapidECUSetting1/DAQ/daq50ms/CCPDAQ | ec55xx_ccpslb1 | eventchannel=2; sampletime=-1; 
+text28/RapidECUSetting1/DAQ/daq5ms/CCPDAQ | ec55xx_ccpslb1 | eventchannel=0; sampletime=-1; 
+text28/RapidECUSetting1/ETPUICU | ec55xx_etpuicubsb | icuenable=on; 
+text28/RapidECUSetting1/ETPUPWM | ec55xx_etpupwmbsb | pwmenable=off; 
+text28/RapidECUSetting1/Flash/FlashOperation/FlashOperatin | ec55xx_flashoslb | sampletime=-1; 
+text28/RapidECUSetting1/GPIO | ec55xx_gpiobsb | gpioenable=on; 
+text28/RapidECUSetting1/ICU | ec55xx_icubsb | icuenable=off; 
+text28/RapidECUSetting1/PAD | ec55xx_padbsb | pad75=MDO4; pad76=MDO5; pad77=MDO6; pad78=MDO7; pad79=MDO8; pad80=MDO9; pad81=MDO10; pad82=MDO11; pad83=CANA; pad84=CANA; pad85=CANB; pad86=CANB; pad87=CANC; pad88=CANC; pad89=SCIA; pad90=SCIA; pad91=SCIB; pad92=SCIB; pad93=SCKA(Master); pad94=SINA; pad95=SOUTA; pad96=PCSA0(Master); pad97=PCSA1; pad98=PCSA2; pad99=PCSA3; pad100=PCSA4; pad101=PCSA5; pad102=SCKB(Master); pad103=SINB; pad104=SOUTB; pad105=PCSB0; pad106=PCSB1; pad107=PCSB2; pad108=PCSB3; pad109=PCSB4; pad110=PCSB5; pad111=ETRIG0; pad112=ETRIG1; pad113=TCRCLKA; pad114=ETPUA0(Out); pad115=ETPUA1(Out); pad116=ETPUA2(Out); pad117=GPI117; pad118=GPO118; pad119=GPI119; pad120=ETPUA6(Out); pad121=ETPUA7(In); pad122=ETPUA8(In); pad123=GPI123; pad124=GPI124; pad125=GPI125; pad126=GPI126; pad127=GPI127; pad128=GPI128; pad129=GPI129; pad130=GPI130; pad131=ETPUA17(In); pad132=ETPUA18(In); pad133=ETPUA19(Out); pad134=ETPUA20(Out); pad135=ETPUA21(Out); pad136=ETPUA22(Out); pad137=ETPUA23(Out); pad138=ETPUA24(Out); pad139=ETPUA25(Out); pad140=ETPUA26(Out); pad141=ETPUA27(Out); pad142=ETPUA28(Out); pad143=ETPUA29(Out); pad144=ETPUA30(Out); pad145=ETPUA31(Out); pad146=TCRCLKB; pad147=GPI147; pad148=GPI148; pad149=GPI149; pad150=ETPUB3(Out); pad151=GPI151; pad152=GPI152; pad153=GPI153; pad154=GPI154; pad155=GPI155; pad156=GPI156; pad157=GPI157; pad158=GPI158; pad159=GPI159; pad160=GPI160; pad161=GPI161; pad162=ETPUB15(Out); pad163=GPI163; pad164=GPI164; pad165=GPI165; pad166=GPI166; pad167=GPI167; pad168=GPI168; pad169=GPI169; pad170=GPI170; pad171=ETPUB24(In); pad172=GPI172; pad173=GPI173; pad174=ETPUB27(In); pad175=ETPUB28(In); pad176=ETPUB29(In); pad177=ETPUB30(Out); pad178=ETPUB31(Out); pad179=GPO179; pad180=GPO180; pad181=GPO181; pad182=GPO182; pad183=GPO183; pad184=GPO184; pad185=EMIOS6(Out); pad186=EMIOS7(Out); pad187=GPO187; pad188=GPO188; pad189=GPO189; pad190=GPO190; pad191=GPO191; pad192=GPO192; pad193=GPO193; pad194=EMIOS15(Out); pad195=GPO195; pad196=EMIOS17(Out); pad197=GPO197; pad198=GPO198; pad199=GPO199; pad200=GPO200; pad201=EMIOS22(Out); pad202=EMIOS23(Out); pad203=GPI203; pad204=GPI204; pad205=GPO205; pad206=GPI206; pad207=GPI207; pad208=PLLCFG0; pad209=PLLCFG1; pad210=RSTCFG; pad211=BOOTCFG0; pad212=BOOTCFG1; pad213=WKPCFG; 
+text28/RapidECUSetting1/PD/10mstask/PDSD | ec55xx_pdsdslb1 | sampletime=-1; 
+text28/RapidECUSetting1/PWM | ec55xx_pwmbsb | pwm0enable=on; 
+text28/RapidECUSetting1/Polling/CCPBackground/CCPBackground | ec55xx_ccpslb | sampletime=-1; 
+text28/RapidECUSetting1/Polling/CCPReceive/CANReceive | ec55xx_canreceiveslb | canmodule=C; canbuffer=0; canmessageid=hex2dec('0100'); canmessagetype=Standard(11-bit ID); datalength=8; sampletime=-1; 
+text28/RapidECUSetting1/Polling/CCPTransmit/CCPTXConfirmation | ec55xx_ccpslb2 | sampletime=-1; 
+text28/RapidECUSetting1/Polling/ReceiveandTransmitInterrupt | ec55xx_caninterruptslb1 | caninterruptmodule=C; caninterrupttype=Buffer0 (Receive); 
+text28/RapidECUSetting1/Polling/ReceiveandTransmitInterrupt1 | ec55xx_caninterruptslb1 | caninterruptmodule=C; caninterrupttype=Buffer8 (Transmit); 
+text28/RapidECUSetting1/RTI | ec55xx_rtibsb | rtiperiod=0.0005; 
+text28/RapidECUSetting1/SCI | ec55xx_scibsb | aena=off; abrt=9600; adfm=8; apae=off; apam=Even; aeri=off; bena=off; bbrt=9600; bdfm=8; bpae=off; bpam=Even; beri=off; 
+text28/RapidECUSetting1/SPI | ec55xx_spibsb | aena=on; amode=Master; abrf=System Clock/16; acpo=Clock Idles Low; acph=Delay Half Cycle; alsb=off; bena=off; bmode=Master; bbrf=System Clock/16; bcpo=Clock Idles Low; bcph=No Delay; blsb=off; cena=off; cmode=Master; cbrf=System Clock/16; ccpo=Clock Idles Low; ccph=No Delay; clsb=off; dena=off; dmode=Master; dbrf=System Clock/16; dcpo=Clock Idles Low; dcph=No Delay; dlsb=off; 
+text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=12; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_And | sfix_bitop | logicop=AND; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_And | sfix_bitop | logicop=AND; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=2; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/FootBrake/FootBrake_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=64; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Gear/Gear_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=48; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/High_Value/High_Value_And | sfix_bitop | logicop=AND; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/High_Value/High_Value_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=4095; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Low_Value/Low_Value_And | sfix_bitop | logicop=AND; UseBitMask=off; NumInputPorts=2; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/Low_Value/Low_Value_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65520; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=1; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/handBrake/handBrake_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=128; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or1 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or2 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or3 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or4 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or5 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or6 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or7 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/ECU/Motor/or8 | sfix_bitop | logicop=OR; UseBitMask=off; NumInputPorts=10; BitMask=bin2dec('11011001'); BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/MCU_can总线/CANTransmit | ec55xx_cantransmitslb | canmodule=B; canbuffer=8; canmessageid=hex2dec('CFF09EF'); canmessagetype=Extended(29-bit ID); datalength=8; sampletime=-1; 
+text28/驱动系统/MainRelaySwitch | ec55xx_mrsslb | sampletime=-1; 
+text28/驱动系统/Subsystem/制动与尾灯/前油压 | ec55xx_asislb | channel=54: I_AN15_5V; sampletime=-1; 
+text28/驱动系统/Subsystem/制动与尾灯/尾灯 | ec55xx_pdpslb | channel=115: O_PWM10_HS2A9; sampletime=-1; 
+text28/驱动系统/Subsystem/制动与待驶
+/SwitchInput | ec55xx_swislb | channel=44: I_SW11_H; sampletime=-1; 
+text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/PowerDriverSwitchDiagnosis | ec55xx_pdsdslb | channel=82: O_PWM5_LS1A8; sampletime=-1; 
+text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/蜂鸣器 | ec55xx_pdpslb | channel=117: O_PWM11_HS2A9; sampletime=-1; 
+text28/驱动系统/Subsystem/前轮转速/轮速/右前 | ec55xx_ffrslb | channel=7: I_SW02_C; sampletime=-1; 
+text28/驱动系统/Subsystem/前轮转速/轮速/左前 | ec55xx_ffrslb | channel=6: I_SW01_C; sampletime=-1; 
+text28/驱动系统/Subsystem/电机测速/CANReceive | ec55xx_canreceiveslb | canmodule=B; canbuffer=7; canmessageid=hex2dec('CFF0009'); canmessagetype=Extended(29-bit ID); datalength=8; sampletime=-1; 
+text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=32; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=64; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=240; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=65535; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_L | sfix_bitop | logicop=AND; UseBitMask=on; NumInputPorts=1; BitMask=16; BitMaskRealWorld=Stored Integer; 
+text28/驱动系统/Subsystem/角度传感器/角度1 | ec55xx_asislb | channel=52: I_AN13_5V; sampletime=-1; 
+text28/驱动系统/Subsystem/角度传感器/角度2 | ec55xx_asislb | channel=53: I_AN14_5V; sampletime=-1; 
+text28/驱动系统/Subsystem2/安全出 | ec55xx_pdpslb | channel=114: O_PWM9_HS2A9; sampletime=-1; 
+text28/驱动系统/WDGFeed | ec55xx_wdgfeedslb | sampletime=-1; 
+PROBE_DONE

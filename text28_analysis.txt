@@ -1,0 +1,423 @@
+=== LOAD ===
+LOAD_OK
+ModelVersion      : 1.174
+LastModifiedBy    : 25289
+Description       : 
+SimulationMode    : normal
+SolverType        : Fixed-step
+Solver            : FixedStepDiscrete
+StopTime          : 10.0
+MaxStep           : auto
+FixedStep         : 0.0005
+AbsTol            : auto
+RelTol            : 1e-3
+
+=== BLOCK CENSUS (all levels) ===
+TotalBlocks       : 1833
+  Outport                      :   335
+  Constant                     :   304
+  SubSystem                    :   201
+  Inport                       :   174
+  S-Function                   :   126
+  DataTypeConversion           :   119
+  Sum                          :    85
+  ArithShift                   :    78
+  Saturate                     :    56
+  Terminator                   :    52
+  Product                      :    44
+  ActionPort                   :    42
+  Gain                         :    30
+  RelationalOperator           :    30
+  Switch                       :    28
+  If                           :    21
+  Merge                        :    20
+  TriggerPort                  :    20
+  Rounding                     :    17
+  UnaryMinus                   :    16
+  Abs                          :    12
+  Demux                        :     6
+  Logic                        :     5
+  UnitDelay                    :     4
+  Ground                       :     3
+  Mux                          :     3
+  Display                      :     2
+
+=== TOP-LEVEL ===
+TopLevelBlocks    : 13
+  [1] text28/10ms1 | S-Function | Ports=[0 1 0 0 0 0 0 0]
+  [2] text28/20ms2 | S-Function | Ports=[0 1 0 0 0 0 0 0]
+  [3] text28/50ms2 | S-Function | Ports=[0 1 0 0 0 0 0 0]
+  [4] text28/Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+  [5] text28/Constant1 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  [6] text28/Demux | Demux | Ports=[1 2 0 0 0 0 0 0]
+  [7] text28/Demux1 | Demux | Ports=[1 2 0 0 0 0 0 0]
+  [8] text28/Function-Call
+Subsystem2 | SubSystem | Ports=[2 0 0 1 0 0 0 0]
+  [9] text28/Function-Call
+Subsystem3 | SubSystem | Ports=[5 0 0 1 0 0 0 0]
+  [10] text28/Function-Call
+Subsystem4 | SubSystem | Ports=[0 5 0 1 0 0 0 0]
+  [11] text28/Function-Call
+Subsystem7 | SubSystem | Ports=[0 0 0 1 0 0 0 0]
+  [12] text28/RapidECUSetting1 | SubSystem | Ports=[0 0 0 0 0 0 0 0]
+  [13] text28/驱动系统 | SubSystem | Ports=[0 0 0 1 0 0 0 0]
+
+Inports           : 0
+Outports          : 0
+
+Subsystems        : 201
+  text28/Function-Call
+Subsystem2 | Mask=(none)
+  text28/Function-Call
+Subsystem2/xieyi | Mask=(none)
+  text28/Function-Call
+Subsystem2/xieyi/Motor_toque | Mask=(none)
+  text28/Function-Call
+Subsystem2/xieyi/Speed | Mask=(none)
+  text28/Function-Call
+Subsystem3 | Mask=(none)
+  text28/Function-Call
+Subsystem3/dianchi | Mask=(none)
+  text28/Function-Call
+Subsystem3/dianchi/BatAlmLv | Mask=(none)
+  text28/Function-Call
+Subsystem3/dianchi/BatCurrent | Mask=(none)
+  text28/Function-Call
+Subsystem3/dianchi/BatSoc | Mask=(none)
+  text28/Function-Call
+Subsystem3/dianchi/BatState | Mask=(none)
+  text28/Function-Call
+Subsystem3/dianchi/BatVoltage | Mask=(none)
+  text28/Function-Call
+Subsystem4 | Mask=(none)
+  text28/Function-Call
+Subsystem4/Function-Call
+Subsystem4 | Mask=(none)
+  text28/Function-Call
+Subsystem4/MeaModule2 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/MeaModule5 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/ReceiveMessages | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatAlmLv_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatCurrent_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatLife_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatSoc_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatState_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BatVoltage_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/BMS_HCU_INFO/BtaSOH_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem4/ReceiveMessages/MeaModule | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/ReceiveMessages/MeaModule1 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/ReceiveMessages/MeaModule2 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/ReceiveMessages/MeaModule3 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/can断线  | Mask=(none)
+  text28/Function-Call
+Subsystem4/can断线 /If Action
+Subsystem2 | Mask=(none)
+  text28/Function-Call
+Subsystem4/can断线 /If Action
+Subsystem3 | Mask=(none)
+  text28/Function-Call
+Subsystem4/can断线 /MeaModule1 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/一级警告 | Mask=(none)
+  text28/Function-Call
+Subsystem4/一级警告/If Action
+Subsystem | Mask=(none)
+  text28/Function-Call
+Subsystem4/一级警告/If Action
+Subsystem1 | Mask=(none)
+  text28/Function-Call
+Subsystem4/可视 | Mask=(none)
+  text28/Function-Call
+Subsystem4/可视/MeaModule3 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem4/故障状态报警 | Mask=(none)
+  text28/Function-Call
+Subsystem4/故障状态报警/If Action
+Subsystem | Mask=(none)
+  text28/Function-Call
+Subsystem4/故障状态报警/If Action
+Subsystem1 | Mask=(none)
+  text28/Function-Call
+Subsystem7 | Mask=(none)
+  text28/Function-Call
+Subsystem7/Function-Call
+Subsystem2 | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2 | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2 | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Fail_Grade_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Live_counter_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/MCU_temperature_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Motor_Temperature_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Torque_Limit_High_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MCU_STATUS_2/Torque_Limit_Low_Sub | Mask=(none)
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MeaModule5 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem7/MCU_STATUS_2/MeaModule6 | Mask=Measurement Module
+  text28/Function-Call
+Subsystem7/MeaModule | Mask=Measurement Module
+  text28/RapidECUSetting1 | Mask=RapidECUSetting
+  text28/RapidECUSetting1/BL | Mask=(none)
+  text28/RapidECUSetting1/BL/Function-Call
+Subsystem | Mask=(none)
+  text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem | Mask=(none)
+  text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/Com0 | Mask=Compare To Constant
+  text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/Com1 | Mask=Compare To Constant
+  text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/Com2 | Mask=Compare To Constant
+  text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/If Action
+Subsystem | Mask=(none)
+  text28/RapidECUSetting1/BL/Function-Call
+Subsystem/Function-Call
+Subsystem/If Action
+Subsystem1 | Mask=(none)
+  text28/RapidECUSetting1/DAQ | Mask=CCP DAQ
+  text28/RapidECUSetting1/DAQ/daq100ms | Mask=(none)
+  text28/RapidECUSetting1/DAQ/daq10ms | Mask=(none)
+  text28/RapidECUSetting1/DAQ/daq50ms | Mask=(none)
+  text28/RapidECUSetting1/DAQ/daq5ms | Mask=(none)
+  text28/RapidECUSetting1/Flash | Mask=(none)
+  text28/RapidECUSetting1/Flash/FlashOperation | Mask=(none)
+  text28/RapidECUSetting1/PD | Mask=(none)
+  text28/RapidECUSetting1/PD/10mstask | Mask=(none)
+  text28/RapidECUSetting1/Polling | Mask=Polling Command Handling
+  text28/RapidECUSetting1/Polling/CCPBackground | Mask=(none)
+  text28/RapidECUSetting1/Polling/CCPReceive | Mask=(none)
+  text28/RapidECUSetting1/Polling/CCPReceive/Nothing | Mask=(none)
+  text28/RapidECUSetting1/Polling/CCPTransmit | Mask=(none)
+  text28/驱动系统 | Mask=(none)
+  text28/驱动系统/ECU | Mask=(none)
+  text28/驱动系统/ECU/Motor | Mask=(none)
+  text28/驱动系统/ECU/Motor/Control_Mode | Mask=(none)
+  text28/驱动系统/ECU/Motor/Demand_Speed | Mask=(none)
+  text28/驱动系统/ECU/Motor/Demand_Torquee | Mask=(none)
+  text28/驱动系统/ECU/Motor/Fault_Reset | Mask=(none)
+  text28/驱动系统/ECU/Motor/FootBrake | Mask=(none)
+  text28/驱动系统/ECU/Motor/Gear | Mask=(none)
+  text28/驱动系统/ECU/Motor/High_Value | Mask=(none)
+  text28/驱动系统/ECU/Motor/Low_Value | Mask=(none)
+  text28/驱动系统/ECU/Motor/MCU_Enable | Mask=(none)
+  text28/驱动系统/ECU/Motor/handBrake | Mask=(none)
+  text28/驱动系统/MCU_can总线 | Mask=(none)
+  text28/驱动系统/MCU_can总线/MeaModule | Mask=Measurement Module
+  text28/驱动系统/MCU_can总线/安全回路out | Mask=(none)
+  text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem2 | Mask=(none)
+  text28/驱动系统/Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/appsrule/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/appsrule/动力信号判断 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/动力信号判断/动力信号 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/动力信号判断/故障信号 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/同时油门刹车  | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/同时油门刹车 /故障 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常   | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /故障 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /正常 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/无刹车判断 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/无刹车判断/有刹车 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/无刹车判断/没刹车 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/油门小于5%判断 | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门大于5% | Mask=(none)
+  text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门小于5% | Mask=(none)
+  text28/驱动系统/Subsystem/制动与尾灯 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem2 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem3 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与尾灯/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与尾灯/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与尾灯/MeaModule2 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+ | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+/MeaModule2 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+/MeaModule3 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+/MeaModule4 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+/MeaModule5 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+/待驶按键 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/MeaModule3 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/制动与待驶
+/待驶激活 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem2 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem3 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛 | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem/前轮转速 | Mask=(none)
+  text28/驱动系统/Subsystem/前轮转速/轮速 | Mask=(none)
+  text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule2 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/滑转率计算 | Mask=(none)
+  text28/驱动系统/Subsystem/滑转率计算/滑转率计算 | Mask=(none)
+  text28/驱动系统/Subsystem/滑转率计算/滑转率计算/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/电机测速 | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4 | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1 | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_Sub | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_Sub | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_Sub | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_Sub | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_Sub | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_Sub | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_Sub | Mask=(none)
+  text28/驱动系统/Subsystem/电机测速/转速转轮速 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/MeaModule2 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/MeaModule4 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule3 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem8 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem9 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+ | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule2 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule3 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule4 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule5 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule6 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+ | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+ | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule1 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule2 | Mask=Measurement Module
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常 | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem | Mask=(none)
+  text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem1 | Mask=(none)
+  text28/驱动系统/Subsystem2 | Mask=(none)
+  text28/驱动系统/Subsystem2/MeaModule1 | Mask=Measurement Module
+
+StateflowCharts   : 0
+DataStoreMem      : 0
+Lines(all)        : 1663
+Lines(top-level)  : 14
+
+=== MODEL WORKSPACE (0 vars) ===
+
+ANALYSIS_DONE

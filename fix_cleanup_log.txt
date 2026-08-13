@@ -1,0 +1,44 @@
+deleted text28/驱动系统/Subsystem/前轮转速
+deleted text28/驱动系统/Subsystem/滑转率计算
+deleted text28/驱动系统/Subsystem/车速
+
+deleted text28/驱动系统/Subsystem/滑转率
+deleted text28/驱动系统/Subsystem/电机转速
+deleted text28/驱动系统/Subsystem/电机扭矩
+deleted text28/驱动系统/Terminator
+deleted text28/驱动系统/Terminator1
+deleted text28/驱动系统/Terminator2
+deleted text28/驱动系统/Terminator3
+deleted text28/驱动系统/Subsystem/电机测速/转速转轮速
+deleted text28/驱动系统/Subsystem/电机测速/后轮速度
+deleted text28/驱动系统/Subsystem/电机测速/MeaModule
+renamed sid 546 -> 驱动逻辑
+renamed sid 2933 -> 安全回路输出
+renamed sid 581 -> 油门输出
+renamed sid 648 -> 复位
+renamed sid 649 -> 使能
+renamed sid 2932 -> 系统关键信号
+renamed sid 597 -> 制动与待驶
+renamed sid 650 -> 制动与尾灯
+renamed sid 3105 -> 油压1
+renamed sid 3102 -> 油压2
+renamed sid 921 -> 油门规则
+renamed sid 1009 -> 油门原始值
+renamed sid 922 -> 油门百分比
+renamed sid 923 -> 刹车有效
+renamed sid 993 -> 油门请求
+renamed sid 942 -> 油门刹车冲突
+renamed sid 967 -> 刹车判断
+renamed sid 980 -> 油门死区判断
+renamed sid 929 -> 动力允许判断
+renamed sid 2983 -> 油门数值处理
+renamed sid 3045 -> 百分比转化
+renamed sid 9 -> 扭矩请求
+renamed sid 7 -> 保留
+renamed sid 8 -> 使能
+renamed sid 14 -> 电机报文打包
+renamed sid 360 -> MCU_CAN发送
+renamed sid 1816 -> 电机测速
+SAVE_OK
+UPDATE_OK
+CLEANUP_DONE

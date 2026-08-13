@@ -1,0 +1,22 @@
+logicPath=text28/驱动系统/驱动逻辑
+drivePath=text28/驱动系统
+-- drive logic outports:
+  port '1' : 油门输出
+  port '2' : 复位
+  port '3' : 使能
+  port '4' : 系统关键信号
+-- dead blocks present (expect 0):
+  sid 1011 : absent
+  sid 1977 : absent
+  sid 1961 : absent
+  sid 1971 : absent
+-- motor speed subsystem:
+  port '1' : 电机转速
+  port '2' : 电机扭矩
+-- Drive_AEKF:
+  found: text28/驱动系统/驱动逻辑/Drive_AEKF
+  in port '1' : T_base
+  in port '2' : w_rpm
+  in port '3' : Te_raw
+  out port '1' : T_opt
+VERIFY_DONE

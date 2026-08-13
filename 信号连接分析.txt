@@ -1,0 +1,296 @@
+
+=== DRIVE top | text28/驱动系统 ===
+-- blocks (13):
+    [text28:3] function | TriggerPort | Ports=[0 0 0 0 0 0 0 0]
+    [text28:4] Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+    [text28:5] Data Type Conversion | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+    [text28:6] ECU | SubSystem | Ports=[3 1 0 0 0 0 0 0]
+    [text28:360] MCU_can总线 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:365] MainRelaySwitch | S-Function | Ports=[1 0 0 0 0 0 0 0]
+    [text28:546] Subsystem | SubSystem | Ports=[0 8 0 0 0 0 0 0]
+    [text28:2933] Subsystem2 | SubSystem | Ports=[2 0 0 0 0 0 0 0]
+    [text28:3087] Terminator | Terminator | Ports=[1 0 0 0 0 0 0 0]
+    [text28:3088] Terminator1 | Terminator | Ports=[1 0 0 0 0 0 0 0]
+    [text28:3089] Terminator2 | Terminator | Ports=[1 0 0 0 0 0 0 0]
+    [text28:3090] Terminator3 | Terminator | Ports=[1 0 0 0 0 0 0 0]
+    [text28:2000] WDGFeed | S-Function | Ports=[0 0 0 0 0 0 0 0]
+-- lines (12):
+    "(unnamed)": Subsystem :7 -> Terminator3 :1
+    "(unnamed)": Subsystem :6 -> Terminator2 :1
+    "(unnamed)": Subsystem :5 -> Terminator1 :1
+    "(unnamed)": Subsystem :4 -> Terminator :1
+    "(unnamed)": Subsystem :3 -> ECU :3
+    "(unnamed)": Subsystem :8 -> Subsystem2 :2
+    "(unnamed)": MCU_can总线 :1 -> Subsystem2 :1
+    "(unnamed)": Constant :1 -> Data Type Conversion :1
+    "(unnamed)": Subsystem :1 -> ECU :1
+    "(unnamed)": Subsystem :2 -> ECU :2
+    "(unnamed)": Data Type Conversion :1 -> MainRelaySwitch :1
+    "(unnamed)": ECU :1 -> MCU_can总线 :1
+
+=== Subsystem (drive logic) | text28/驱动系统/Subsystem ===
+-- blocks (15):
+    [text28:921] appsrule | SubSystem | Ports=[3 1 0 0 0 0 0 0]
+    [text28:650] 制动与尾灯 | SubSystem | Ports=[0 2 0 0 0 0 0 0]
+    [text28:597] 制动与待驶
+ | SubSystem | Ports=[1 2 0 0 0 0 0 0]
+    [text28:1011] 前轮转速 | SubSystem | Ports=[0 2 0 0 0 0 0 0]
+    [text28:1977] 滑转率计算 | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+    [text28:1816] 电机测速 | SubSystem | Ports=[0 3 0 0 0 0 0 0]
+    [text28:2958] 角度传感器 | SubSystem | Ports=[0 3 0 0 0 0 0 0]
+    [text28:581] 油门输出
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:648] RES | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:649] Enble
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:2010] 车速
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:2030] 滑转率 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:2011] 电机转速 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:2012] 电机扭矩 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:2932] 系统关键信号 | Outport | Ports=[1 0 0 0 0 0 0 0]
+-- lines (14):
+    "(unnamed)": 制动与尾灯 :2 -> 制动与待驶
+ :1
+    "(unnamed)": 制动与尾灯 :1 -> appsrule :3
+    "(unnamed)": 滑转率计算 :1 -> 滑转率 :1
+    "(unnamed)": 前轮转速 :1 -> 滑转率计算 :1
+    "(unnamed)": 电机测速 :1 -> 滑转率计算 :2
+    "(unnamed)": 电机测速 :2 -> 电机转速 :1
+    "(unnamed)": 电机测速 :3 -> 电机扭矩 :1
+    "(unnamed)": 前轮转速 :2 -> 车速
+ :1
+    "(unnamed)": appsrule :1 -> 油门输出
+ :1
+    "(unnamed)": 角度传感器 :2 -> appsrule :2
+    "(unnamed)": 角度传感器 :1 -> appsrule :1
+    "(unnamed)": 角度传感器 :3 -> 系统关键信号 :1
+    "(unnamed)": 制动与待驶
+ :1 -> RES :1
+    "(unnamed)": 制动与待驶
+ :2 -> Enble
+ :1
+
+=== appsrule | text28/驱动系统/Subsystem/appsrule ===
+-- blocks (14):
+    [text28:1009] 油门1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+    [text28:922] 油门 | Inport | Ports=[0 1 0 0 0 0 0 0]
+    [text28:923] 刹车 | Inport | Ports=[0 1 0 0 0 0 0 0]
+    [text28:924] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:1039] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:925] Product | Product | Ports=[2 1 0 0 0 0 0 0]
+    [text28:926] Product1 | Product | Ports=[2 1 0 0 0 0 0 0]
+    [text28:927] Sum | Sum | Ports=[2 1 0 0 0 0 0 0]
+    [text28:928] Unit Delay | UnitDelay | Ports=[1 1 0 0 0 0 0 0]
+    [text28:929] 动力信号判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:942] 同时油门刹车  | SubSystem | Ports=[3 1 0 0 0 0 0 0]
+    [text28:967] 无刹车判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:980] 油门小于5%判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:993] 传递函数 | Outport | Ports=[1 0 0 0 0 0 0 0]
+-- lines (19):
+    "(unnamed)": 刹车 :1 -> 同时油门刹车  :2
+    "(unnamed)": 刹车 :1 -> 无刹车判断 :1
+    "(unnamed)": 刹车 :1 -> 无刹车判断 :cell
+    "(unnamed)": 油门1 :1 -> Product1 :1
+    "(unnamed)": MeaModule1 :1 -> 传递函数 :1
+    "(unnamed)": Product1 :1 -> MeaModule1 :1
+    "(unnamed)": MeaModule :1 -> Product1 :2
+    "(unnamed)": 油门小于5%判断 :1 -> Product :1
+    "(unnamed)": 无刹车判断 :1 -> Product :2
+    "(unnamed)": Product :1 -> Sum :1
+    "(unnamed)": Sum :1 -> 动力信号判断 :1
+    "(unnamed)": 动力信号判断 :1 -> MeaModule :1
+    "(unnamed)": 动力信号判断 :1 -> Unit Delay :1
+    "(unnamed)": 动力信号判断 :1 -> Unit Delay :cell
+    "(unnamed)": Unit Delay :1 -> 同时油门刹车  :3
+    "(unnamed)": 同时油门刹车  :1 -> Sum :2
+    "(unnamed)": 油门 :1 -> 同时油门刹车  :1
+    "(unnamed)": 油门 :1 -> 油门小于5%判断 :1
+    "(unnamed)": 油门 :1 -> 油门小于5%判断 :cell
+
+=== brake-tail | text28/驱动系统/Subsystem/制动与尾灯 ===
+-- blocks (17):
+    [text28:651] Constant2 | Constant | Ports=[0 1 0 0 0 0 0 0]
+    [text28:652] Data Type Conversion | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+    [text28:653] If | If | Ports=[1 2 0 0 0 0 0 0]
+    [text28:654] If Action
+Subsystem | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+    [text28:658] If Action
+Subsystem1 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+    [text28:3093] If Action
+Subsystem2 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+    [text28:3097] If Action
+Subsystem3 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+    [text28:3092] If1 | If | Ports=[1 2 0 0 0 0 0 0]
+    [text28:662] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:996] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:3103] MeaModule2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:3101] Merge1 | Merge | Ports=[2 1 0 0 0 0 0 0]
+    [text28:663] Merge4 | Merge | Ports=[2 1 0 0 0 0 0 0]
+    [text28:665] 前油压 | S-Function | Ports=[0 1 0 0 0 0 0 0]
+    [text28:664] 尾灯 | S-Function | Ports=[2 0 0 0 0 0 0 0]
+    [text28:3102] youya
+2 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:3105] youya
+1
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+-- lines (20):
+    "(unnamed)": MeaModule1 :1 -> youya
+1
+ :1
+    "(unnamed)": MeaModule2 :1 -> youya
+2 :1
+    "(unnamed)": Merge1 :1 -> MeaModule2 :1
+    "(unnamed)": MeaModule :1 -> If :1
+    "(unnamed)": MeaModule :1 -> If1 :1
+    "(unnamed)": MeaModule :1 -> If1 :cell
+    "(unnamed)": If Action
+Subsystem2 :1 -> Merge1 :1
+    "(unnamed)": If Action
+Subsystem3 :1 -> Merge1 :2
+    "(unnamed)": If1 :2 -> If Action
+Subsystem3 :1
+    "(unnamed)": If1 :1 -> If Action
+Subsystem2 :1
+    "(unnamed)": Merge4 :1 -> Data Type Conversion :1
+    "(unnamed)": Merge4 :1 -> MeaModule1 :1
+    "(unnamed)": Merge4 :1 -> MeaModule1 :cell
+    "(unnamed)": 前油压 :1 -> MeaModule :1
+    "(unnamed)": Data Type Conversion :1 -> 尾灯 :2
+    "(unnamed)": Constant2 :1 -> 尾灯 :1
+    "(unnamed)": If Action
+Subsystem :1 -> Merge4 :1
+    "(unnamed)": If Action
+Subsystem1 :1 -> Merge4 :2
+    "(unnamed)": If :2 -> If Action
+Subsystem1 :1
+    "(unnamed)": If :1 -> If Action
+Subsystem :1
+
+=== slip calc | text28/驱动系统/Subsystem/滑转率计算 ===
+-- blocks (8):
+    [text28:1978] 前轮车速 | Inport | Ports=[0 1 0 0 0 0 0 0]
+    [text28:1979] 后轮车速  | Inport | Ports=[0 1 0 0 0 0 0 0]
+    [text28:1980] Constant1 | Constant | Ports=[0 1 0 0 0 0 0 0]
+    [text28:1981] Constant2 | Constant | Ports=[0 1 0 0 0 0 0 0]
+    [text28:1982] Sum | Sum | Ports=[2 1 0 0 0 0 0 0]
+    [text28:1983] Sum1 | Sum | Ports=[2 1 0 0 0 0 0 0]
+    [text28:1984] 滑转率计算 | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+    [text28:1992] 滑转率 | Outport | Ports=[1 0 0 0 0 0 0 0]
+-- lines (7):
+    "(unnamed)": 滑转率计算 :1 -> 滑转率 :1
+    "(unnamed)": Constant2 :1 -> Sum1 :2
+    "(unnamed)": 后轮车速  :1 -> Sum1 :1
+    "(unnamed)": Constant1 :1 -> Sum :2
+    "(unnamed)": 前轮车速 :1 -> Sum :1
+    "(unnamed)": Sum :1 -> 滑转率计算 :1
+    "(unnamed)": Sum1 :1 -> 滑转率计算 :2
+
+=== motor speed | text28/驱动系统/Subsystem/电机测速 ===
+-- blocks (8):
+    [text28:1817] CANReceive | S-Function | Ports=[0 5 0 0 0 0 0 0]
+    [text28:1818] Function-Call
+Subsystem4 | SubSystem | Ports=[4 1 0 1 0 0 0 0]
+    [text28:1828] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:1829] ReceiveMessages | SubSystem | Ports=[1 2 0 0 0 0 0 0]
+    [text28:1961] 转速转轮速 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:1971] 后轮速度 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:1972] 电机转速 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:1973] 电机扭矩 | Outport | Ports=[1 0 0 0 0 0 0 0]
+-- lines (12):
+    "(unnamed)": MeaModule :1 -> 后轮速度 :1
+    "(unnamed)": 转速转轮速 :1 -> MeaModule :1
+    "(unnamed)": ReceiveMessages :2 -> 电机扭矩 :1
+    "(unnamed)": ReceiveMessages :1 -> 转速转轮速 :1
+    "(unnamed)": ReceiveMessages :1 -> 电机转速 :1
+    "(unnamed)": ReceiveMessages :1 -> 电机转速 :cell
+    "(unnamed)": CANReceive :3 -> Function-Call
+Subsystem4 :2
+    "(unnamed)": CANReceive :1 -> Function-Call
+Subsystem4 :5
+    "(unnamed)": CANReceive :4 -> Function-Call
+Subsystem4 :3
+    "(unnamed)": CANReceive :5 -> Function-Call
+Subsystem4 :4
+    "(unnamed)": CANReceive :2 -> Function-Call
+Subsystem4 :1
+    "(unnamed)": Function-Call
+Subsystem4 :1 -> ReceiveMessages :1
+
+=== angle sensor | text28/驱动系统/Subsystem/角度传感器 ===
+-- blocks (11):
+    [text28:2959] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:3130] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:3131] MeaModule2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:2960] MeaModule4 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:2961] 角度1 | S-Function | Ports=[0 1 0 0 0 0 0 0]
+    [text28:2962] 角度2 | S-Function | Ports=[0 1 0 0 0 0 0 0]
+    [text28:2963] 角度传感器数据处理及不可靠信号 | SubSystem | Ports=[2 2 0 0 0 0 0 0]
+    [text28:3069] 角度传感器是否正常 | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+    [text28:3084] 油门数值
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:3085] 油门百分比 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:3086] 系统关键信号判断 | Outport | Ports=[1 0 0 0 0 0 0 0]
+-- lines (13):
+    "(unnamed)": MeaModule1 :1 -> 角度传感器是否正常 :2
+    "(unnamed)": MeaModule1 :1 -> 角度传感器数据处理及不可靠信号 :2
+    "(unnamed)": MeaModule1 :1 -> 角度传感器数据处理及不可靠信号 :cell
+    "(unnamed)": MeaModule2 :1 -> 角度传感器数据处理及不可靠信号 :1
+    "(unnamed)": 角度传感器数据处理及不可靠信号 :2 -> 油门百分比 :1
+    "(unnamed)": MeaModule :1 -> 油门数值
+ :1
+    "(unnamed)": 角度传感器数据处理及不可靠信号 :1 -> MeaModule :1
+    "(unnamed)": 角度1 :1 -> 角度传感器是否正常 :1
+    "(unnamed)": 角度1 :1 -> MeaModule2 :1
+    "(unnamed)": 角度1 :1 -> MeaModule2 :cell
+    "(unnamed)": 角度2 :1 -> MeaModule1 :1
+    "(unnamed)": MeaModule4 :1 -> 系统关键信号判断 :1
+    "(unnamed)": 角度传感器是否正常 :1 -> MeaModule4 :1
+
+=== angle processing | text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号 ===
+-- blocks (14):
+    [text28:2964] 角度1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+    [text28:2965] 角度2 | Inport | Ports=[0 1 0 0 0 0 0 0]
+    [text28:2966] Abs | Abs | Ports=[1 1 0 0 0 0 0 0]
+    [text28:3129] Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+    [text28:2967] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:2968] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:3125] MeaModule3 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:2969] Product | Product | Ports=[2 1 0 0 0 0 0 0]
+    [text28:3128] Product1 | Product | Ports=[2 1 0 0 0 0 0 0]
+    [text28:2970] 不可靠信号判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+    [text28:2983] 油门数值
+ | SubSystem | Ports=[2 2 0 0 0 0 0 0]
+    [text28:3045] 百分比转化
+ | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+    [text28:3067] 油门数值 | Outport | Ports=[1 0 0 0 0 0 0 0]
+    [text28:3068] 油门百分比 | Outport | Ports=[1 0 0 0 0 0 0 0]
+-- lines (17):
+    "(unnamed)": MeaModule3 :1 -> Product1 :1
+    "(unnamed)": Product1 :1 -> 不可靠信号判断 :1
+    "(unnamed)": Constant :1 -> Product1 :2
+    "(unnamed)": Abs :1 -> MeaModule3 :1
+    "(unnamed)": 角度1 :1 -> 百分比转化
+ :1
+    "(unnamed)": 角度1 :1 -> 油门数值
+ :1
+    "(unnamed)": 角度1 :1 -> 油门数值
+ :cell
+    "(unnamed)": 油门数值
+ :2 -> 油门百分比 :1
+    "(unnamed)": 百分比转化
+ :1 -> Abs :1
+    "(unnamed)": MeaModule1 :1 -> Product :1
+    "(unnamed)": MeaModule :1 -> Product :2
+    "(unnamed)": 油门数值
+ :1 -> MeaModule1 :1
+    "(unnamed)": 不可靠信号判断 :1 -> MeaModule :1
+    "(unnamed)": 角度2 :1 -> 油门数值
+ :2
+    "(unnamed)": 角度2 :1 -> 百分比转化
+ :2
+    "(unnamed)": 角度2 :1 -> 百分比转化
+ :cell
+    "(unnamed)": Product :1 -> 油门数值 :1
+
+CONNECTIONS_DONE

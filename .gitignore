@@ -1,0 +1,17 @@
+# MATLAB / Simulink build artifacts
+slprj/
+*.mexw32
+*.mexw64
+*.mexa64
+*.log
+
+# Transient audit files
+audit_*.txt
+full_model_audit.txt
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Local MATLAB preferences
+matlab.prf

@@ -1,0 +1,263 @@
+=== 1. ROOT LEVEL BLOCKS ===
+  text28/10ms1 | S-Function | Ports=[0 1 0 0 0 0 0 0] FunctionName=fcncallgen
+  text28/20ms2 | S-Function | Ports=[0 1 0 0 0 0 0 0] FunctionName=fcncallgen
+  text28/50ms2 | S-Function | Ports=[0 1 0 0 0 0 0 0] FunctionName=fcncallgen
+  text28/Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+  text28/Constant1 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  text28/Demux | Demux | Ports=[1 2 0 0 0 0 0 0]
+  text28/Demux1 | Demux | Ports=[1 2 0 0 0 0 0 0]
+  text28/Function-Call
+Subsystem2 | SubSystem | Ports=[2 0 0 1 0 0 0 0]
+  text28/Function-Call
+Subsystem3 | SubSystem | Ports=[5 0 0 1 0 0 0 0]
+  text28/Function-Call
+Subsystem4 | SubSystem | Ports=[0 5 0 1 0 0 0 0]
+  text28/Function-Call
+Subsystem7 | SubSystem | Ports=[0 0 0 1 0 0 0 0]
+  text28/RapidECUSetting1 | SubSystem | Ports=[0 0 0 0 0 0 0 0]
+  text28/驱动系统 | SubSystem | Ports=[0 0 0 1 0 0 0 0]
+
+=== 1b. ROOT LINES ===
+    "(unnamed)" : Constant1:1 -> Function-Call
+Subsystem2:2
+    "(unnamed)" : Constant:1 -> Function-Call
+Subsystem2:1
+    "(unnamed)" : Function-Call
+Subsystem4:5 -> Function-Call
+Subsystem3:5
+    "(unnamed)" : Function-Call
+Subsystem4:4 -> Function-Call
+Subsystem3:4
+    "(unnamed)" : Function-Call
+Subsystem4:3 -> Function-Call
+Subsystem3:3
+    "(unnamed)" : Function-Call
+Subsystem4:2 -> Function-Call
+Subsystem3:2
+    "(unnamed)" : Function-Call
+Subsystem4:1 -> Function-Call
+Subsystem3:1
+    "(unnamed)" : Demux1:2 -> Function-Call
+Subsystem3:6
+    "(unnamed)" : Demux1:1 -> Function-Call
+Subsystem4:1
+    "(unnamed)" : Demux:2 -> Function-Call
+Subsystem2:3
+    "(unnamed)" : Demux:1 -> 驱动系统:1
+    "(unnamed)" : 50ms2:1 -> Function-Call
+Subsystem7:1
+    "(unnamed)" : 20ms2:1 -> Demux1:1
+    "(unnamed)" : 10ms1:1 -> Demux:1
+
+=== 2. DRIVE INTERFACE ===
+  drivePath=text28/驱动系统
+  logicPath=text28/驱动系统/Subsystem
+  -- drive top-level lines:
+    "(unnamed)" : Subsystem:7 -> Terminator3:1
+    "(unnamed)" : Subsystem:6 -> Terminator2:1
+    "(unnamed)" : Subsystem:5 -> Terminator1:1
+    "(unnamed)" : Subsystem:4 -> Terminator:1
+    "(unnamed)" : Subsystem:3 -> ECU:3
+    "(unnamed)" : Subsystem:8 -> Subsystem2:2
+    "(unnamed)" : MCU_can总线:1 -> Subsystem2:1
+    "(unnamed)" : Constant:1 -> Data Type Conversion:1
+    "(unnamed)" : Subsystem:1 -> ECU:1
+    "(unnamed)" : Subsystem:2 -> ECU:2
+    "(unnamed)" : Data Type Conversion:1 -> MainRelaySwitch:1
+    "(unnamed)" : ECU:1 -> MCU_can总线:1
+  -- Subsystem (drive logic) outports:
+    Port'1': 油门输出
+
+    Port'2': RES
+    Port'3': Enble
+
+    Port'4': 车速
+
+    Port'5': 滑转率
+    Port'6': 电机转速
+    Port'7': 电机扭矩
+    Port'8': 系统关键信号
+  -- Subsystem (drive logic) top-level lines:
+    "(unnamed)" : 制动与尾灯:2 -> 制动与待驶
+:1
+    "(unnamed)" : 制动与尾灯:1 -> appsrule:3
+    "(unnamed)" : 滑转率计算:1 -> 滑转率:1
+    "(unnamed)" : 前轮转速:1 -> 滑转率计算:1
+    "(unnamed)" : 电机测速:1 -> 滑转率计算:2
+    "(unnamed)" : 电机测速:2 -> 电机转速:1
+    "(unnamed)" : 电机测速:3 -> 电机扭矩:1
+    "(unnamed)" : 前轮转速:2 -> 车速
+:1
+    "(unnamed)" : appsrule:1 -> 油门输出
+:1
+    "(unnamed)" : 角度传感器:2 -> appsrule:2
+    "(unnamed)" : 角度传感器:1 -> appsrule:1
+    "(unnamed)" : 角度传感器:3 -> 系统关键信号:1
+    "(unnamed)" : 制动与待驶
+:1 -> RES:1
+    "(unnamed)" : 制动与待驶
+:2 -> Enble
+:1
+
+  -- appsrule | text28/驱动系统/Subsystem/appsrule
+    IN  Port'1': 油门1
+    IN  Port'2': 油门
+    IN  Port'3': 刹车
+    OUT Port'1': 传递函数
+    "(unnamed)" : 刹车:1 -> 同时油门刹车 :2
+    "(unnamed)" : 刹车:1 -> 无刹车判断:1
+    "(unnamed)" : 刹车:1 -> 无刹车判断:1
+    "(unnamed)" : 油门1:1 -> Product1:1
+    "(unnamed)" : MeaModule1:1 -> 传递函数:1
+    "(unnamed)" : Product1:1 -> MeaModule1:1
+    "(unnamed)" : MeaModule:1 -> Product1:2
+    "(unnamed)" : 油门小于5%判断:1 -> Product:1
+    "(unnamed)" : 无刹车判断:1 -> Product:2
+    "(unnamed)" : Product:1 -> Sum:1
+    "(unnamed)" : Sum:1 -> 动力信号判断:1
+    "(unnamed)" : 动力信号判断:1 -> MeaModule:1
+    "(unnamed)" : 动力信号判断:1 -> Unit Delay:1
+    "(unnamed)" : 动力信号判断:1 -> Unit Delay:1
+    "(unnamed)" : Unit Delay:1 -> 同时油门刹车 :3
+    "(unnamed)" : 同时油门刹车 :1 -> Sum:2
+    "(unnamed)" : 油门:1 -> 同时油门刹车 :1
+    "(unnamed)" : 油门:1 -> 油门小于5%判断:1
+    "(unnamed)" : 油门:1 -> 油门小于5%判断:1
+
+  -- angle sensor | text28/驱动系统/Subsystem/角度传感器
+    OUT Port'1': 油门数值
+
+    OUT Port'2': 油门百分比
+    OUT Port'3': 系统关键信号判断
+    "(unnamed)" : MeaModule1:1 -> 角度传感器是否正常:2
+    "(unnamed)" : MeaModule1:1 -> 角度传感器数据处理及不可靠信号:2
+    "(unnamed)" : MeaModule1:1 -> 角度传感器数据处理及不可靠信号:2
+    "(unnamed)" : MeaModule2:1 -> 角度传感器数据处理及不可靠信号:1
+    "(unnamed)" : 角度传感器数据处理及不可靠信号:2 -> 油门百分比:1
+    "(unnamed)" : MeaModule:1 -> 油门数值
+:1
+    "(unnamed)" : 角度传感器数据处理及不可靠信号:1 -> MeaModule:1
+    "(unnamed)" : 角度1:1 -> 角度传感器是否正常:1
+    "(unnamed)" : 角度1:1 -> MeaModule2:1
+    "(unnamed)" : 角度1:1 -> MeaModule2:1
+    "(unnamed)" : 角度2:1 -> MeaModule1:1
+    "(unnamed)" : MeaModule4:1 -> 系统关键信号判断:1
+    "(unnamed)" : 角度传感器是否正常:1 -> MeaModule4:1
+
+  -- motor speed | text28/驱动系统/Subsystem/电机测速
+    OUT Port'1': 后轮速度
+    OUT Port'2': 电机转速
+    OUT Port'3': 电机扭矩
+    "(unnamed)" : MeaModule:1 -> 后轮速度:1
+    "(unnamed)" : 转速转轮速:1 -> MeaModule:1
+    "(unnamed)" : ReceiveMessages:2 -> 电机扭矩:1
+    "(unnamed)" : ReceiveMessages:1 -> 转速转轮速:1
+    "(unnamed)" : ReceiveMessages:1 -> 电机转速:1
+    "(unnamed)" : ReceiveMessages:1 -> 电机转速:1
+    "(unnamed)" : CANReceive:3 -> Function-Call
+Subsystem4:2
+    "(unnamed)" : CANReceive:1 -> Function-Call
+Subsystem4:5
+    "(unnamed)" : CANReceive:4 -> Function-Call
+Subsystem4:3
+    "(unnamed)" : CANReceive:5 -> Function-Call
+Subsystem4:4
+    "(unnamed)" : CANReceive:2 -> Function-Call
+Subsystem4:1
+    "(unnamed)" : Function-Call
+Subsystem4:1 -> ReceiveMessages:1
+
+  -- slip calc | text28/驱动系统/Subsystem/滑转率计算
+    IN  Port'1': 前轮车速
+    IN  Port'2': 后轮车速 
+    OUT Port'1': 滑转率
+    "(unnamed)" : 滑转率计算:1 -> 滑转率:1
+    "(unnamed)" : Constant2:1 -> Sum1:2
+    "(unnamed)" : 后轮车速 :1 -> Sum1:1
+    "(unnamed)" : Constant1:1 -> Sum:2
+    "(unnamed)" : 前轮车速:1 -> Sum:1
+    "(unnamed)" : Sum:1 -> 滑转率计算:1
+    "(unnamed)" : Sum1:1 -> 滑转率计算:2
+
+  -- front wheel speed | text28/驱动系统/Subsystem/前轮转速
+    OUT Port'1': 前轮车速
+    OUT Port'2': 车速
+    "(unnamed)" : Gain:1 -> 车速:1
+    "(unnamed)" : 轮速:1 -> 前轮车速:1
+    "(unnamed)" : 轮速:1 -> Gain:1
+    "(unnamed)" : 轮速:1 -> Gain:1
+
+  -- brake-tail | text28/驱动系统/Subsystem/制动与尾灯
+    OUT Port'1': youya
+2
+    OUT Port'2': youya
+1
+
+    "(unnamed)" : MeaModule1:1 -> youya
+1
+:1
+    "(unnamed)" : MeaModule2:1 -> youya
+2:1
+    "(unnamed)" : Merge1:1 -> MeaModule2:1
+    "(unnamed)" : MeaModule:1 -> If:1
+    "(unnamed)" : MeaModule:1 -> If1:1
+    "(unnamed)" : MeaModule:1 -> If1:1
+    "(unnamed)" : If Action
+Subsystem2:1 -> Merge1:1
+    "(unnamed)" : If Action
+Subsystem3:1 -> Merge1:2
+    "(unnamed)" : If1:2 -> If Action
+Subsystem3:1
+    "(unnamed)" : If1:1 -> If Action
+Subsystem2:1
+    "(unnamed)" : Merge4:1 -> Data Type Conversion:1
+    "(unnamed)" : Merge4:1 -> MeaModule1:1
+    "(unnamed)" : Merge4:1 -> MeaModule1:1
+    "(unnamed)" : 前油压:1 -> MeaModule:1
+    "(unnamed)" : Data Type Conversion:1 -> 尾灯:2
+    "(unnamed)" : Constant2:1 -> 尾灯:1
+    "(unnamed)" : If Action
+Subsystem:1 -> Merge4:1
+    "(unnamed)" : If Action
+Subsystem1:1 -> Merge4:2
+    "(unnamed)" : If:2 -> If Action
+Subsystem1:1
+    "(unnamed)" : If:1 -> If Action
+Subsystem:1
+
+  -- brake-creep | text28/驱动系统/Subsystem/制动与待驶
+
+    IN  Port'1': 制动
+
+    OUT Port'1': RES
+    OUT Port'2': EN
+    "(unnamed)" : MeaModule3:1 -> Product:2
+    "(unnamed)" : Product:1 -> Saturation:1
+    "(unnamed)" : Product:1 -> Unit Delay:1
+    "(unnamed)" : Product:1 -> Unit Delay:1
+    "(unnamed)" : MeaModule5:1 -> Sum:1
+    "(unnamed)" : MeaModule4:1 -> Sum:2
+    "(unnamed)" : MeaModule2:1 -> Product:1
+    "(unnamed)" : MeaModule2:1 -> 鸣笛1:2
+    "(unnamed)" : MeaModule2:1 -> 鸣笛1:2
+    "(unnamed)" : SwitchInput:1 -> MeaModule2:1
+    "(unnamed)" : Sum:1 -> MeaModule3:1
+    "(unnamed)" : MeaModule1:1 -> 待驶激活:2
+    "(unnamed)" : 待驶按键:1 -> MeaModule1:1
+    "(unnamed)" : MeaModule:1 -> EN:1
+    "(unnamed)" : MeaModule:1 -> 鸣笛1:1
+    "(unnamed)" : MeaModule:1 -> Switch:2
+    "(unnamed)" : MeaModule:1 -> Switch:2
+    "(unnamed)" : 待驶激活:1 -> MeaModule5:1
+    "(unnamed)" : 制动
+:1 -> 待驶激活:1
+    "(unnamed)" : Unit Delay:1 -> MeaModule4:1
+    "(unnamed)" : Saturation:1 -> MeaModule:1
+    "(unnamed)" : Switch:1 -> RES:1
+    "(unnamed)" : Constant1:1 -> Switch:3
+    "(unnamed)" : Constant:1 -> Switch:1
+
+=== 3. NAMED SIGNAL LINES ===
+  total named lines: 0
+
+LIST_DONE

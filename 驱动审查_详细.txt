@@ -1,0 +1,979 @@
+
+=== 椹卞姩绯荤粺 top | text28/驱动系统 ===
+  BLK [text28:3] function | TriggerPort | Ports=[0 0 0 0 0 0 0 0]
+  BLK [text28:4] Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:5] Data Type Conversion | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:6] ECU | SubSystem | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:360] MCU_can总线 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:365] MainRelaySwitch | S-Function | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:546] Subsystem | SubSystem | Ports=[0 8 0 0 0 0 0 0]
+  BLK [text28:2933] Subsystem2 | SubSystem | Ports=[2 0 0 0 0 0 0 0]
+  BLK [text28:3087] Terminator | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:3088] Terminator1 | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:3089] Terminator2 | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:3090] Terminator3 | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:2000] WDGFeed | S-Function | Ports=[0 0 0 0 0 0 0 0]
+  LINE "(unnamed)": Subsystem:7 -> Terminator3:1
+  LINE "(unnamed)": Subsystem:6 -> Terminator2:1
+  LINE "(unnamed)": Subsystem:5 -> Terminator1:1
+  LINE "(unnamed)": Subsystem:4 -> Terminator:1
+  LINE "(unnamed)": Subsystem:3 -> ECU:3
+  LINE "(unnamed)": Subsystem:8 -> Subsystem2:2
+  LINE "(unnamed)": MCU_can总线:1 -> Subsystem2:1
+  LINE "(unnamed)": Constant:1 -> Data Type Conversion:1
+  LINE "(unnamed)": Subsystem:1 -> ECU:1
+  LINE "(unnamed)": Subsystem:2 -> ECU:2
+  LINE "(unnamed)": Data Type Conversion:1 -> MainRelaySwitch:1
+  LINE "(unnamed)": ECU:1 -> MCU_can总线:1
+
+=== Subsystem (drive logic) | text28/驱动系统/Subsystem ===
+  BLK [text28:3464] Drive_AEKF | SubSystem | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:921] appsrule | SubSystem | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:650] 制动与尾灯 | SubSystem | Ports=[0 2 0 0 0 0 0 0]
+  BLK [text28:597] 制动与待驶
+ | SubSystem | Ports=[1 2 0 0 0 0 0 0]
+  BLK [text28:1011] 前轮转速 | SubSystem | Ports=[0 2 0 0 0 0 0 0]
+  BLK [text28:1977] 滑转率计算 | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1816] 电机测速 | SubSystem | Ports=[0 3 0 0 0 0 0 0]
+  BLK [text28:2958] 角度传感器 | SubSystem | Ports=[0 3 0 0 0 0 0 0]
+  BLK [text28:581] 油门输出
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:648] RES | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:649] Enble
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:2010] 车速
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:2030] 滑转率 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:2011] 电机转速 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:2012] 电机扭矩 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:2932] 系统关键信号 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": Drive_AEKF:1 -> 油门输出
+:1
+  LINE "(unnamed)": appsrule:1 -> Drive_AEKF:1
+  LINE "(unnamed)": 制动与尾灯:2 -> 制动与待驶
+:1
+  LINE "(unnamed)": 制动与尾灯:1 -> appsrule:3
+  LINE "(unnamed)": 滑转率计算:1 -> 滑转率:1
+  LINE "(unnamed)": 前轮转速:1 -> 滑转率计算:1
+  LINE "(unnamed)": 电机测速:1 -> 滑转率计算:2
+  LINE "(unnamed)": 电机测速:2 -> Drive_AEKF:2
+  LINE "(unnamed)": 电机测速:2 -> 电机转速:1
+  LINE "(unnamed)": 电机测速:2 -> 电机转速:1
+  LINE "(unnamed)": 电机测速:3 -> Drive_AEKF:3
+  LINE "(unnamed)": 电机测速:3 -> 电机扭矩:1
+  LINE "(unnamed)": 电机测速:3 -> 电机扭矩:1
+  LINE "(unnamed)": 前轮转速:2 -> 车速
+:1
+  LINE "(unnamed)": 角度传感器:2 -> appsrule:2
+  LINE "(unnamed)": 角度传感器:1 -> appsrule:1
+  LINE "(unnamed)": 角度传感器:3 -> 系统关键信号:1
+  LINE "(unnamed)": 制动与待驶
+:1 -> RES:1
+  LINE "(unnamed)": 制动与待驶
+:2 -> Enble
+:1
+
+=== appsrule | text28/驱动系统/Subsystem/appsrule ===
+  BLK [text28:1009] 油门1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:922] 油门 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:923] 刹车 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:924] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1039] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:925] Product | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:926] Product1 | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:927] Sum | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:928] Unit Delay | UnitDelay | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:929] 动力信号判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:942] 同时油门刹车  | SubSystem | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:967] 无刹车判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:980] 油门小于5%判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:993] 传递函数 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": 刹车:1 -> 同时油门刹车 :2
+  LINE "(unnamed)": 刹车:1 -> 无刹车判断:1
+  LINE "(unnamed)": 刹车:1 -> 无刹车判断:1
+  LINE "(unnamed)": 油门1:1 -> Product1:1
+  LINE "(unnamed)": MeaModule1:1 -> 传递函数:1
+  LINE "(unnamed)": Product1:1 -> MeaModule1:1
+  LINE "(unnamed)": MeaModule:1 -> Product1:2
+  LINE "(unnamed)": 油门小于5%判断:1 -> Product:1
+  LINE "(unnamed)": 无刹车判断:1 -> Product:2
+  LINE "(unnamed)": Product:1 -> Sum:1
+  LINE "(unnamed)": Sum:1 -> 动力信号判断:1
+  LINE "(unnamed)": 动力信号判断:1 -> MeaModule:1
+  LINE "(unnamed)": 动力信号判断:1 -> Unit Delay:1
+  LINE "(unnamed)": 动力信号判断:1 -> Unit Delay:1
+  LINE "(unnamed)": Unit Delay:1 -> 同时油门刹车 :3
+  LINE "(unnamed)": 同时油门刹车 :1 -> Sum:2
+  LINE "(unnamed)": 油门:1 -> 同时油门刹车 :1
+  LINE "(unnamed)": 油门:1 -> 油门小于5%判断:1
+  LINE "(unnamed)": 油门:1 -> 油门小于5%判断:1
+
+=== angle processing | text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号 ===
+  BLK [text28:2964] 角度1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2965] 角度2 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2966] Abs | Abs | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3129] Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2967] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2968] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3125] MeaModule3 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2969] Product | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3128] Product1 | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:2970] 不可靠信号判断 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2983] 油门数值
+ | SubSystem | Ports=[2 2 0 0 0 0 0 0]
+  BLK [text28:3045] 百分比转化
+ | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3067] 油门数值 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:3068] 油门百分比 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": MeaModule3:1 -> Product1:1
+  LINE "(unnamed)": Product1:1 -> 不可靠信号判断:1
+  LINE "(unnamed)": Constant:1 -> Product1:2
+  LINE "(unnamed)": Abs:1 -> MeaModule3:1
+  LINE "(unnamed)": 角度1:1 -> 百分比转化
+:1
+  LINE "(unnamed)": 角度1:1 -> 油门数值
+:1
+  LINE "(unnamed)": 角度1:1 -> 油门数值
+:1
+  LINE "(unnamed)": 油门数值
+:2 -> 油门百分比:1
+  LINE "(unnamed)": 百分比转化
+:1 -> Abs:1
+  LINE "(unnamed)": MeaModule1:1 -> Product:1
+  LINE "(unnamed)": MeaModule:1 -> Product:2
+  LINE "(unnamed)": 油门数值
+:1 -> MeaModule1:1
+  LINE "(unnamed)": 不可靠信号判断:1 -> MeaModule:1
+  LINE "(unnamed)": 角度2:1 -> 油门数值
+:2
+  LINE "(unnamed)": 角度2:1 -> 百分比转化
+:2
+  LINE "(unnamed)": 角度2:1 -> 百分比转化
+:2
+  LINE "(unnamed)": Product:1 -> 油门数值:1
+
+=== unreliable judge | text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断 ===
+  BLK [text28:2971] In1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2972] If Action
+Subsystem8 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:2976] If Action
+Subsystem9 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:2980] If4 | If | Ports=[1 2 0 0 0 0 0 0]
+  BLK [text28:2981] Merge4 | Merge | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:2982] Out1 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": If Action
+Subsystem9:1 -> Merge4:2
+  LINE "(unnamed)": If Action
+Subsystem8:1 -> Merge4:1
+  LINE "(unnamed)": If4:1 -> If Action
+Subsystem8:1
+  LINE "(unnamed)": Merge4:1 -> Out1:1
+  LINE "(unnamed)": If4:2 -> If Action
+Subsystem9:1
+  LINE "(unnamed)": In1:1 -> If4:1
+
+=== pedal value | text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+ ===
+  BLK [text28:3117] 角度1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2985] 角度2 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:3122] Abs | Abs | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3132] Abs1 | Abs | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2986] Add | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3115] Constant1 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2988] Constant10 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2989] Constant11 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2990] Constant2 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2991] Constant3 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2992] Divide | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:2993] Gain1 | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2994] Gain10 | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2995] Gain2 | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2996] Gain3 | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2997] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2998] MeaModule2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2999] MeaModule3 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3121] MeaModule4 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3137] MeaModule5 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3139] MeaModule6 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3000] Product | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3116] Sum1 | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3002] Sum3 | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3003] Sum6 | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3004] 空量程
+ | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3017] 阈值 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3030] 阈值2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3043] 油门数值 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:3044] 油门百分比 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": MeaModule6:1 -> Add:1
+  LINE "(unnamed)": Constant10:1 -> Product:1
+  LINE "(unnamed)": MeaModule5:1 -> 阈值:1
+  LINE "(unnamed)": 角度1:1 -> Sum1:1
+  LINE "(unnamed)": Abs1:1 -> MeaModule2:1
+  LINE "(unnamed)": Constant2:1 -> Sum3:2
+  LINE "(unnamed)": 角度2:1 -> Sum3:1
+  LINE "(unnamed)": MeaModule2:1 -> Gain2:1
+  LINE "(unnamed)": MeaModule3:1 -> Gain3:1
+  LINE "(unnamed)": Abs:1 -> MeaModule3:1
+  LINE "(unnamed)": Sum1:1 -> Abs1:1
+  LINE "(unnamed)": Sum3:1 -> Abs:1
+  LINE "(unnamed)": Constant1:1 -> Sum1:2
+  LINE "(unnamed)": MeaModule4:1 -> Divide:1
+  LINE "(unnamed)": MeaModule4:1 -> 空量程
+:1
+  LINE "(unnamed)": MeaModule4:1 -> 空量程
+:1
+  LINE "(unnamed)": 阈值2:1 -> MeaModule1:1
+  LINE "(unnamed)": 阈值:1 -> 油门数值:1
+  LINE "(unnamed)": Gain3:1 -> Sum6:2
+  LINE "(unnamed)": Gain2:1 -> Sum6:1
+  LINE "(unnamed)": Gain1:1 -> 阈值2:1
+  LINE "(unnamed)": Divide:1 -> Gain1:1
+  LINE "(unnamed)": MeaModule1:1 -> 油门百分比:1
+  LINE "(unnamed)": Constant3:1 -> Divide:2
+  LINE "(unnamed)": Add:1 -> MeaModule5:1
+  LINE "(unnamed)": 空量程
+:1 -> Product:2
+  LINE "(unnamed)": Constant11:1 -> Add:2
+  LINE "(unnamed)": Product:1 -> MeaModule6:1
+  LINE "(unnamed)": Gain10:1 -> MeaModule4:1
+  LINE "(unnamed)": Sum6:1 -> Gain10:1
+
+=== percent conversion | text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+ ===
+  BLK [text28:3046] 角度1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:3047] 角度2 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:3123] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3124] MeaModule2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3051] Sum2 | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3052] 角度归零化百分比1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3059] 角度归零化百分比2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3066] Out2 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": MeaModule2:1 -> Sum2:2
+  LINE "(unnamed)": MeaModule1:1 -> Sum2:1
+  LINE "(unnamed)": 角度1:1 -> 角度归零化百分比2:1
+  LINE "(unnamed)": Sum2:1 -> Out2:1
+  LINE "(unnamed)": 角度归零化百分比2:1 -> MeaModule1:1
+  LINE "(unnamed)": 角度归零化百分比1:1 -> MeaModule2:1
+  LINE "(unnamed)": 角度2:1 -> 角度归零化百分比1:1
+
+=== sensor ok | text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常 ===
+  BLK [text28:3070] 角度1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:3071] 角度2 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:3072] If | If | Ports=[2 2 0 0 0 0 0 0]
+  BLK [text28:3073] If Action
+Subsystem | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:3077] If Action
+Subsystem1 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:3081] Merge | Merge | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:3082] 油门范围 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": 角度2:1 -> If:2
+  LINE "(unnamed)": Merge:1 -> 油门范围:1
+  LINE "(unnamed)": If Action
+Subsystem:1 -> Merge:2
+  LINE "(unnamed)": If Action
+Subsystem1:1 -> Merge:1
+  LINE "(unnamed)": If:2 -> If Action
+Subsystem:1
+  LINE "(unnamed)": If:1 -> If Action
+Subsystem1:1
+  LINE "(unnamed)": 角度1:1 -> If:1
+
+=== brake-tail | text28/驱动系统/Subsystem/制动与尾灯 ===
+  BLK [text28:651] Constant2 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:652] Data Type Conversion | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:653] If | If | Ports=[1 2 0 0 0 0 0 0]
+  BLK [text28:654] If Action
+Subsystem | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:658] If Action
+Subsystem1 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:3093] If Action
+Subsystem2 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:3097] If Action
+Subsystem3 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:3092] If1 | If | Ports=[1 2 0 0 0 0 0 0]
+  BLK [text28:662] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:996] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3103] MeaModule2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3101] Merge1 | Merge | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:663] Merge4 | Merge | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:665] 前油压 | S-Function | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:664] 尾灯 | S-Function | Ports=[2 0 0 0 0 0 0 0]
+  BLK [text28:3102] youya
+2 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:3105] youya
+1
+ | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": MeaModule1:1 -> youya
+1
+:1
+  LINE "(unnamed)": MeaModule2:1 -> youya
+2:1
+  LINE "(unnamed)": Merge1:1 -> MeaModule2:1
+  LINE "(unnamed)": MeaModule:1 -> If:1
+  LINE "(unnamed)": MeaModule:1 -> If1:1
+  LINE "(unnamed)": MeaModule:1 -> If1:1
+  LINE "(unnamed)": If Action
+Subsystem2:1 -> Merge1:1
+  LINE "(unnamed)": If Action
+Subsystem3:1 -> Merge1:2
+  LINE "(unnamed)": If1:2 -> If Action
+Subsystem3:1
+  LINE "(unnamed)": If1:1 -> If Action
+Subsystem2:1
+  LINE "(unnamed)": Merge4:1 -> Data Type Conversion:1
+  LINE "(unnamed)": Merge4:1 -> MeaModule1:1
+  LINE "(unnamed)": Merge4:1 -> MeaModule1:1
+  LINE "(unnamed)": 前油压:1 -> MeaModule:1
+  LINE "(unnamed)": Data Type Conversion:1 -> 尾灯:2
+  LINE "(unnamed)": Constant2:1 -> 尾灯:1
+  LINE "(unnamed)": If Action
+Subsystem:1 -> Merge4:1
+  LINE "(unnamed)": If Action
+Subsystem1:1 -> Merge4:2
+  LINE "(unnamed)": If:2 -> If Action
+Subsystem1:1
+  LINE "(unnamed)": If:1 -> If Action
+Subsystem:1
+
+=== brake-ready | text28/驱动系统/Subsystem/制动与待驶
+ ===
+  BLK [text28:668] 制动
+ | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:600] Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:601] Constant1 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:3407] Logical
+Operator | Logic | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:602] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:610] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3400] MeaModule2 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3405] MeaModule3 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3406] MeaModule4 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3419] MeaModule5 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:3420] Product | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:603] Saturation | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:604] Sum | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:605] Switch | Switch | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:3396] SwitchInput | S-Function | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:606] Unit Delay | UnitDelay | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:607] 待驶按键 | SubSystem | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:669] 待驶激活 | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:614] 鸣笛1 | SubSystem | Ports=[2 0 0 0 0 0 0 0]
+  BLK [text28:644] RES | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:645] EN | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": MeaModule3:1 -> Product:2
+  LINE "(unnamed)": Product:1 -> Saturation:1
+  LINE "(unnamed)": Product:1 -> Unit Delay:1
+  LINE "(unnamed)": Product:1 -> Unit Delay:1
+  LINE "(unnamed)": MeaModule5:1 -> Sum:1
+  LINE "(unnamed)": MeaModule4:1 -> Sum:2
+  LINE "(unnamed)": MeaModule2:1 -> Product:1
+  LINE "(unnamed)": MeaModule2:1 -> 鸣笛1:2
+  LINE "(unnamed)": MeaModule2:1 -> 鸣笛1:2
+  LINE "(unnamed)": SwitchInput:1 -> MeaModule2:1
+  LINE "(unnamed)": Sum:1 -> MeaModule3:1
+  LINE "(unnamed)": MeaModule1:1 -> 待驶激活:2
+  LINE "(unnamed)": 待驶按键:1 -> MeaModule1:1
+  LINE "(unnamed)": MeaModule:1 -> EN:1
+  LINE "(unnamed)": MeaModule:1 -> 鸣笛1:1
+  LINE "(unnamed)": MeaModule:1 -> Switch:2
+  LINE "(unnamed)": MeaModule:1 -> Switch:2
+  LINE "(unnamed)": 待驶激活:1 -> MeaModule5:1
+  LINE "(unnamed)": 制动
+:1 -> 待驶激活:1
+  LINE "(unnamed)": Unit Delay:1 -> MeaModule4:1
+  LINE "(unnamed)": Saturation:1 -> MeaModule:1
+  LINE "(unnamed)": Switch:1 -> RES:1
+  LINE "(unnamed)": Constant1:1 -> Switch:3
+  LINE "(unnamed)": Constant:1 -> Switch:1
+
+=== ready activation | text28/驱动系统/Subsystem/制动与待驶
+/待驶激活 ===
+  BLK [text28:670] 制动 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:671] 按钮 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:672] If | If | Ports=[1 2 0 0 0 0 0 0]
+  BLK [text28:673] If Action
+Subsystem | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:677] If Action
+Subsystem1 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:681] If Action
+Subsystem2 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:685] If Action
+Subsystem3 | SubSystem | Ports=[0 1 0 0 0 0 0 1]
+  BLK [text28:689] If1 | If | Ports=[1 2 0 0 0 0 0 0]
+  BLK [text28:690] Logical
+Operator | Logic | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:691] Merge | Merge | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:692] Merge1 | Merge | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:693] Out1 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": Merge1:1 -> Logical
+Operator:2
+  LINE "(unnamed)": Merge:1 -> Logical
+Operator:1
+  LINE "(unnamed)": If Action
+Subsystem3:1 -> Merge1:2
+  LINE "(unnamed)": If Action
+Subsystem2:1 -> Merge1:1
+  LINE "(unnamed)": If Action
+Subsystem1:1 -> Merge:2
+  LINE "(unnamed)": If Action
+Subsystem:1 -> Merge:1
+  LINE "(unnamed)": Logical
+Operator:1 -> Out1:1
+  LINE "(unnamed)": 制动:1 -> If1:1
+  LINE "(unnamed)": 按钮:1 -> If:1
+  LINE "(unnamed)": If1:2 -> If Action
+Subsystem3:1
+  LINE "(unnamed)": If1:1 -> If Action
+Subsystem2:1
+  LINE "(unnamed)": If:2 -> If Action
+Subsystem1:1
+  LINE "(unnamed)": If:1 -> If Action
+Subsystem:1
+
+=== motor speed | text28/驱动系统/Subsystem/电机测速 ===
+  BLK [text28:1817] CANReceive | S-Function | Ports=[0 5 0 0 0 0 0 0]
+  BLK [text28:1818] Function-Call
+Subsystem4 | SubSystem | Ports=[4 1 0 1 0 0 0 0]
+  BLK [text28:1828] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1829] ReceiveMessages | SubSystem | Ports=[1 2 0 0 0 0 0 0]
+  BLK [text28:1961] 转速转轮速 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1971] 后轮速度 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1972] 电机转速 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1973] 电机扭矩 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": MeaModule:1 -> 后轮速度:1
+  LINE "(unnamed)": 转速转轮速:1 -> MeaModule:1
+  LINE "(unnamed)": ReceiveMessages:2 -> 电机扭矩:1
+  LINE "(unnamed)": ReceiveMessages:1 -> 转速转轮速:1
+  LINE "(unnamed)": ReceiveMessages:1 -> 电机转速:1
+  LINE "(unnamed)": ReceiveMessages:1 -> 电机转速:1
+  LINE "(unnamed)": CANReceive:3 -> Function-Call
+Subsystem4:2
+  LINE "(unnamed)": CANReceive:1 -> Function-Call
+Subsystem4:5
+  LINE "(unnamed)": CANReceive:4 -> Function-Call
+Subsystem4:3
+  LINE "(unnamed)": CANReceive:5 -> Function-Call
+Subsystem4:4
+  LINE "(unnamed)": CANReceive:2 -> Function-Call
+Subsystem4:1
+  LINE "(unnamed)": Function-Call
+Subsystem4:1 -> ReceiveMessages:1
+
+=== receive messages | text28/驱动系统/Subsystem/电机测速/ReceiveMessages ===
+  BLK [text28:1830] resive | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1831] Active_Discharge_Enab_Ter | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1832] Data Type Conversion | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1833] Data Type Conversion1 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1834] Gain | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1835] Gain1 | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1836] IGBT_Enable_Feedback_Ter | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1837] Livecounter_Ter | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1838] MeaModule | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1839] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1840] MotorACCurrent_Ter | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1841] Precharge_Allow_Ter | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1842] resive1 | SubSystem | Ports=[1 7 0 0 0 0 0 0]
+  BLK [text28:1959] 电机转速 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1960] 电机扭矩 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": Data Type Conversion1:1 -> Gain1:1
+  LINE "(unnamed)": resive1:2 -> Data Type Conversion1:1
+  LINE "(unnamed)": Gain1:1 -> MeaModule1:1
+  LINE "(unnamed)": Data Type Conversion:1 -> Gain:1
+  LINE "(unnamed)": resive1:4 -> Data Type Conversion:1
+  LINE "(unnamed)": Gain:1 -> MeaModule:1
+  LINE "(unnamed)": MeaModule1:1 -> 电机扭矩:1
+  LINE "(unnamed)": MeaModule:1 -> 电机转速:1
+  LINE "(unnamed)": resive:1 -> resive1:1
+  LINE "(unnamed)": resive1:7 -> Active_Discharge_Enab_Ter:1
+  LINE "(unnamed)": resive1:6 -> IGBT_Enable_Feedback_Ter:1
+  LINE "(unnamed)": resive1:5 -> Livecounter_Ter:1
+  LINE "(unnamed)": resive1:3 -> MotorACCurrent_Ter:1
+  LINE "(unnamed)": resive1:1 -> Precharge_Allow_Ter:1
+
+=== resive1 | text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1 ===
+  BLK [text28:1843] input | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1844] Active_Discharge_Enab_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1845] Active_Discharge_Enab_Convert | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1846] Active_Discharge_Enab_F | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1847] Active_Discharge_Enab_L | S-Function | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1848] Active_Discharge_Enab_O | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1849] Active_Discharge_Enab_S | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1850] Active_Discharge_Enab_Sub | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1853] Active_Discharge_Enab_sat | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1854] Active_Discharge_Enabcv | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1855] Demux | Demux | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:1856] IGBT_Enable_Feedback_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1857] IGBT_Enable_Feedback_Convert | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1858] IGBT_Enable_Feedback_F | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1859] IGBT_Enable_Feedback_L | S-Function | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1860] IGBT_Enable_Feedback_O | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1861] IGBT_Enable_Feedback_S | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1862] IGBT_Enable_Feedback_Sub | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1865] IGBT_Enable_Feedback_sat | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1866] IGBT_Enable_Feedbackcv | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1867] LivecounterCS | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1868] LivecounterCS1 | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1869] LivecounterConS | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1870] LivecounterMinus | UnaryMinus | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1871] LivecounterROP | RelationalOperator | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1872] LivecounterSW | Switch | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:1873] Livecounter_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1874] Livecounter_Convert | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1875] Livecounter_F | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1876] Livecounter_L | S-Function | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1877] Livecounter_O | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1878] Livecounter_S | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1879] Livecounter_Sub | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1882] Livecounter_sat | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1883] Livecountercv | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1884] Livecountersubcon | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1885] MotorACCurrent_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1886] MotorACCurrent_Convert | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1887] MotorACCurrent_F | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1888] MotorACCurrent_L | S-Function | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1889] MotorACCurrent_O | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1890] MotorACCurrent_S | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1891] MotorACCurrent_Sub | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1894] MotorACCurrent_sat | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1895] MotorACCurrentcv | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1896] MotorACCurrentinput6_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1897] MotorACCurrentinput6_C | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1898] MotorACCurrentinput6_P | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1899] MotorTorqueCS | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1900] MotorTorqueCS1 | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1901] MotorTorqueConS | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1902] MotorTorqueMinus | UnaryMinus | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1903] MotorTorqueROP | RelationalOperator | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1904] MotorTorqueSW | Switch | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:1905] MotorTorque_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1906] MotorTorque_Convert | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1907] MotorTorque_F | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1908] MotorTorque_L | S-Function | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1909] MotorTorque_O | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1910] MotorTorque_S | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1911] MotorTorque_Sub | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1914] MotorTorque_sat | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1915] MotorTorquecv | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1916] MotorTorqueinput4_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1917] MotorTorqueinput4_C | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1918] MotorTorqueinput4_P | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1919] MotorTorquesubcon | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1920] Motor_SpeedCS | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1921] Motor_SpeedCS1 | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1922] Motor_SpeedConS | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1923] Motor_SpeedMinus | UnaryMinus | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1924] Motor_SpeedROP | RelationalOperator | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1925] Motor_SpeedSW | Switch | Ports=[3 1 0 0 0 0 0 0]
+  BLK [text28:1926] Motor_Speed_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1927] Motor_Speed_Convert | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1928] Motor_Speed_F | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1929] Motor_Speed_L | S-Function | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1930] Motor_Speed_O | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1931] Motor_Speed_S | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1932] Motor_Speed_Sub | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1935] Motor_Speed_sat | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1936] Motor_Speedcv | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1937] Motor_Speedinput2_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1938] Motor_Speedinput2_C | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1939] Motor_Speedinput2_P | Product | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1940] Motor_Speedsubcon | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1941] Precharge_Allow_Ad | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1942] Precharge_Allow_Convert | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1943] Precharge_Allow_F | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1944] Precharge_Allow_L | S-Function | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1945] Precharge_Allow_O | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1946] Precharge_Allow_S | ArithShift | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1947] Precharge_Allow_Sub | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1950] Precharge_Allow_sat | Saturate | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1951] Precharge_Allowcv | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1952] Precharge_Allow_Out | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1953] MotorTorque_Out | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1954] MotorACCurrent_Out | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1955] Motor_Speed_Out | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1956] Livecounter_Out | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1957] IGBT_Enable_Feedback_Out | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1958] Active_Discharge_Enab_Out | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": input:1 -> Demux:1
+  LINE "(unnamed)": Active_Discharge_Enabcv:1 -> Active_Discharge_Enab_F:1
+  LINE "(unnamed)": Active_Discharge_Enab_S:1 -> Active_Discharge_Enabcv:1
+  LINE "(unnamed)": Active_Discharge_Enab_L:1 -> Active_Discharge_Enab_S:1
+  LINE "(unnamed)": Active_Discharge_Enab_Convert:1 -> Active_Discharge_Enab_L:1
+  LINE "(unnamed)": Active_Discharge_Enab_Sub:1 -> Active_Discharge_Enab_Convert:1
+  LINE "(unnamed)": Active_Discharge_Enab_sat:1 -> Active_Discharge_Enab_Out:1
+  LINE "(unnamed)": Active_Discharge_Enab_Ad:1 -> Active_Discharge_Enab_sat:1
+  LINE "(unnamed)": Active_Discharge_Enab_O:1 -> Active_Discharge_Enab_Ad:2
+  LINE "(unnamed)": Active_Discharge_Enab_F:1 -> Active_Discharge_Enab_Ad:1
+  LINE "(unnamed)": IGBT_Enable_Feedbackcv:1 -> IGBT_Enable_Feedback_F:1
+  LINE "(unnamed)": IGBT_Enable_Feedback_S:1 -> IGBT_Enable_Feedbackcv:1
+  LINE "(unnamed)": IGBT_Enable_Feedback_L:1 -> IGBT_Enable_Feedback_S:1
+  LINE "(unnamed)": IGBT_Enable_Feedback_Convert:1 -> IGBT_Enable_Feedback_L:1
+  LINE "(unnamed)": IGBT_Enable_Feedback_Sub:1 -> IGBT_Enable_Feedback_Convert:1
+  LINE "(unnamed)": IGBT_Enable_Feedback_sat:1 -> IGBT_Enable_Feedback_Out:1
+  LINE "(unnamed)": IGBT_Enable_Feedback_Ad:1 -> IGBT_Enable_Feedback_sat:1
+  LINE "(unnamed)": IGBT_Enable_Feedback_O:1 -> IGBT_Enable_Feedback_Ad:2
+  LINE "(unnamed)": IGBT_Enable_Feedback_F:1 -> IGBT_Enable_Feedback_Ad:1
+  LINE "(unnamed)": LivecounterROP:1 -> LivecounterSW:2
+  LINE "(unnamed)": LivecounterSW:1 -> Livecounter_F:1
+  LINE "(unnamed)": LivecounterMinus:1 -> LivecounterSW:1
+  LINE "(unnamed)": Livecountersubcon:1 -> LivecounterMinus:1
+  LINE "(unnamed)": LivecounterCS:1 -> Livecountersubcon:1
+  LINE "(unnamed)": LivecounterCS1:1 -> LivecounterROP:2
+  LINE "(unnamed)": LivecounterConS:1 -> LivecounterCS1:1
+  LINE "(unnamed)": LivecounterConS:1 -> LivecounterCS:1
+  LINE "(unnamed)": LivecounterConS:1 -> LivecounterCS:1
+  LINE "(unnamed)": Livecountercv:1 -> LivecounterROP:1
+  LINE "(unnamed)": Livecountercv:1 -> LivecounterSW:3
+  LINE "(unnamed)": Livecountercv:1 -> Livecountersubcon:2
+  LINE "(unnamed)": Livecountercv:1 -> Livecountersubcon:2
+  LINE "(unnamed)": Livecountercv:1 -> Livecountersubcon:2
+  LINE "(unnamed)": Livecounter_S:1 -> Livecountercv:1
+  LINE "(unnamed)": Livecounter_L:1 -> Livecounter_S:1
+  LINE "(unnamed)": Livecounter_Convert:1 -> Livecounter_L:1
+  LINE "(unnamed)": Livecounter_Sub:1 -> Livecounter_Convert:1
+  LINE "(unnamed)": Demux:8 -> Livecounter_Sub:1
+  LINE "(unnamed)": Livecounter_sat:1 -> Livecounter_Out:1
+  LINE "(unnamed)": Livecounter_Ad:1 -> Livecounter_sat:1
+  LINE "(unnamed)": Livecounter_O:1 -> Livecounter_Ad:2
+  LINE "(unnamed)": Livecounter_F:1 -> Livecounter_Ad:1
+  LINE "(unnamed)": Motor_SpeedROP:1 -> Motor_SpeedSW:2
+  LINE "(unnamed)": Motor_SpeedSW:1 -> Motor_Speed_F:1
+  LINE "(unnamed)": Motor_SpeedMinus:1 -> Motor_SpeedSW:1
+  LINE "(unnamed)": Motor_Speedsubcon:1 -> Motor_SpeedMinus:1
+  LINE "(unnamed)": Motor_SpeedCS:1 -> Motor_Speedsubcon:1
+  LINE "(unnamed)": Motor_SpeedCS1:1 -> Motor_SpeedROP:2
+  LINE "(unnamed)": Motor_SpeedConS:1 -> Motor_SpeedCS1:1
+  LINE "(unnamed)": Motor_SpeedConS:1 -> Motor_SpeedCS:1
+  LINE "(unnamed)": Motor_SpeedConS:1 -> Motor_SpeedCS:1
+  LINE "(unnamed)": Motor_Speedcv:1 -> Motor_SpeedSW:3
+  LINE "(unnamed)": Motor_Speedcv:1 -> Motor_Speedsubcon:2
+  LINE "(unnamed)": Motor_Speedcv:1 -> Motor_SpeedROP:1
+  LINE "(unnamed)": Motor_Speedcv:1 -> Motor_SpeedROP:1
+  LINE "(unnamed)": Motor_Speedcv:1 -> Motor_SpeedROP:1
+  LINE "(unnamed)": Motor_Speed_S:1 -> Motor_Speedcv:1
+  LINE "(unnamed)": Motor_Speed_L:1 -> Motor_Speed_S:1
+  LINE "(unnamed)": Motor_Speed_Convert:1 -> Motor_Speed_L:1
+  LINE "(unnamed)": Motor_Speed_Sub:1 -> Motor_Speed_Convert:1
+  LINE "(unnamed)": Motor_Speedinput2_Ad:1 -> Motor_Speed_Sub:1
+  LINE "(unnamed)": Demux:1 -> Motor_Speedinput2_Ad:2
+  LINE "(unnamed)": Motor_Speedinput2_P:1 -> Motor_Speedinput2_Ad:1
+  LINE "(unnamed)": Motor_Speedinput2_C:1 -> Motor_Speedinput2_P:2
+  LINE "(unnamed)": Demux:2 -> Motor_Speedinput2_P:1
+  LINE "(unnamed)": Motor_Speed_sat:1 -> Motor_Speed_Out:1
+  LINE "(unnamed)": Motor_Speed_Ad:1 -> Motor_Speed_sat:1
+  LINE "(unnamed)": Motor_Speed_O:1 -> Motor_Speed_Ad:2
+  LINE "(unnamed)": Motor_Speed_F:1 -> Motor_Speed_Ad:1
+  LINE "(unnamed)": MotorACCurrentcv:1 -> MotorACCurrent_F:1
+  LINE "(unnamed)": MotorACCurrent_S:1 -> MotorACCurrentcv:1
+  LINE "(unnamed)": MotorACCurrent_L:1 -> MotorACCurrent_S:1
+  LINE "(unnamed)": MotorACCurrent_Convert:1 -> MotorACCurrent_L:1
+  LINE "(unnamed)": MotorACCurrent_Sub:1 -> MotorACCurrent_Convert:1
+  LINE "(unnamed)": MotorACCurrentinput6_Ad:1 -> MotorACCurrent_Sub:1
+  LINE "(unnamed)": Demux:5 -> MotorACCurrentinput6_Ad:2
+  LINE "(unnamed)": MotorACCurrentinput6_P:1 -> MotorACCurrentinput6_Ad:1
+  LINE "(unnamed)": MotorACCurrentinput6_C:1 -> MotorACCurrentinput6_P:2
+  LINE "(unnamed)": Demux:6 -> MotorACCurrentinput6_P:1
+  LINE "(unnamed)": MotorACCurrent_sat:1 -> MotorACCurrent_Out:1
+  LINE "(unnamed)": MotorACCurrent_Ad:1 -> MotorACCurrent_sat:1
+  LINE "(unnamed)": MotorACCurrent_O:1 -> MotorACCurrent_Ad:2
+  LINE "(unnamed)": MotorACCurrent_F:1 -> MotorACCurrent_Ad:1
+  LINE "(unnamed)": MotorTorqueROP:1 -> MotorTorqueSW:2
+  LINE "(unnamed)": MotorTorqueSW:1 -> MotorTorque_F:1
+  LINE "(unnamed)": MotorTorqueMinus:1 -> MotorTorqueSW:1
+  LINE "(unnamed)": MotorTorquesubcon:1 -> MotorTorqueMinus:1
+  LINE "(unnamed)": MotorTorqueCS:1 -> MotorTorquesubcon:1
+  LINE "(unnamed)": MotorTorqueCS1:1 -> MotorTorqueROP:2
+  LINE "(unnamed)": MotorTorqueConS:1 -> MotorTorqueCS1:1
+  LINE "(unnamed)": MotorTorqueConS:1 -> MotorTorqueCS:1
+  LINE "(unnamed)": MotorTorqueConS:1 -> MotorTorqueCS:1
+  LINE "(unnamed)": MotorTorquecv:1 -> MotorTorqueSW:3
+  LINE "(unnamed)": MotorTorquecv:1 -> MotorTorquesubcon:2
+  LINE "(unnamed)": MotorTorquecv:1 -> MotorTorqueROP:1
+  LINE "(unnamed)": MotorTorquecv:1 -> MotorTorqueROP:1
+  LINE "(unnamed)": MotorTorquecv:1 -> MotorTorqueROP:1
+  LINE "(unnamed)": MotorTorque_S:1 -> MotorTorquecv:1
+  LINE "(unnamed)": MotorTorque_L:1 -> MotorTorque_S:1
+  LINE "(unnamed)": MotorTorque_Convert:1 -> MotorTorque_L:1
+  LINE "(unnamed)": MotorTorque_Sub:1 -> MotorTorque_Convert:1
+  LINE "(unnamed)": MotorTorqueinput4_Ad:1 -> MotorTorque_Sub:1
+  LINE "(unnamed)": Demux:3 -> MotorTorqueinput4_Ad:2
+  LINE "(unnamed)": MotorTorqueinput4_P:1 -> MotorTorqueinput4_Ad:1
+  LINE "(unnamed)": MotorTorqueinput4_C:1 -> MotorTorqueinput4_P:2
+  LINE "(unnamed)": Demux:4 -> MotorTorqueinput4_P:1
+  LINE "(unnamed)": MotorTorque_sat:1 -> MotorTorque_Out:1
+  LINE "(unnamed)": MotorTorque_Ad:1 -> MotorTorque_sat:1
+  LINE "(unnamed)": MotorTorque_O:1 -> MotorTorque_Ad:2
+  LINE "(unnamed)": MotorTorque_F:1 -> MotorTorque_Ad:1
+  LINE "(unnamed)": Precharge_Allowcv:1 -> Precharge_Allow_F:1
+  LINE "(unnamed)": Precharge_Allow_S:1 -> Precharge_Allowcv:1
+  LINE "(unnamed)": Precharge_Allow_L:1 -> Precharge_Allow_S:1
+  LINE "(unnamed)": Precharge_Allow_Convert:1 -> Precharge_Allow_L:1
+  LINE "(unnamed)": Precharge_Allow_Sub:1 -> Precharge_Allow_Convert:1
+  LINE "(unnamed)": Demux:7 -> Precharge_Allow_Sub:1
+  LINE "(unnamed)": Demux:7 -> Active_Discharge_Enab_Sub:1
+  LINE "(unnamed)": Demux:7 -> IGBT_Enable_Feedback_Sub:1
+  LINE "(unnamed)": Demux:7 -> IGBT_Enable_Feedback_Sub:1
+  LINE "(unnamed)": Demux:7 -> IGBT_Enable_Feedback_Sub:1
+  LINE "(unnamed)": Precharge_Allow_sat:1 -> Precharge_Allow_Out:1
+  LINE "(unnamed)": Precharge_Allow_Ad:1 -> Precharge_Allow_sat:1
+  LINE "(unnamed)": Precharge_Allow_O:1 -> Precharge_Allow_Ad:2
+  LINE "(unnamed)": Precharge_Allow_F:1 -> Precharge_Allow_Ad:1
+
+=== ECU | text28/驱动系统/ECU ===
+  BLK [text28:9] 扭矩输入
+ | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:7] Res | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:8] Enble
+ | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:10] Constant | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:11] Constant1 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:3091] Constant2 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:13] FootBrake | Ground | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:14] Motor | SubSystem | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:357] demand_speed | Ground | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:358] handBrake | Ground | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:359] Out1 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": 扭矩输入
+:1 -> Motor:2
+  LINE "(unnamed)": Constant2:1 -> Motor:3
+  LINE "(unnamed)": Constant2:1 -> Motor:4
+  LINE "(unnamed)": Constant2:1 -> Motor:4
+  LINE "(unnamed)": demand_speed:1 -> Motor:1
+  LINE "(unnamed)": Enble
+:1 -> Motor:10
+  LINE "(unnamed)": Res:1 -> Motor:9
+  LINE "(unnamed)": Constant1:1 -> Motor:7
+  LINE "(unnamed)": Motor:1 -> Out1:1
+  LINE "(unnamed)": handBrake:1 -> Motor:5
+  LINE "(unnamed)": FootBrake:1 -> Motor:6
+  LINE "(unnamed)": Constant:1 -> Motor:8
+
+=== ECU/Motor | text28/驱动系统/ECU/Motor ===
+  BLK [text28:15] Demand_Speed_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:16] Demand_Torquee_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:17] Low_Value_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:18] High_Value_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:19] handBrake_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:20] FootBrake_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:21] Gear_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:22] Control_Mode_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:23] Fault_Reset_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:24] MCU_Enable_in | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:25] Control_Mode | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:53] Conv1 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:54] Conv2 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:55] Conv3 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:56] Conv4 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:57] Conv5 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:58] Conv6 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:59] Conv7 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:60] Conv8 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:61] Demand_Speed | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:100] Demand_Torquee | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:139] Fault_Reset | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:167] FootBrake | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:195] Gear | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:223] High_Value | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:255] Low_Value | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:287] MCU_Enable | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:315] Motor_DLC | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:316] Motor_DLC_Out | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:317] Motor_ID | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:318] Motor_ID_Out | Terminator | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:319] Motor_mux | Mux | Ports=[8 1 0 0 0 0 0 0]
+  BLK [text28:320] handBrake | SubSystem | Ports=[1 8 0 0 0 0 0 0]
+  BLK [text28:348] or1 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:349] or2 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:350] or3 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:351] or4 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:352] or5 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:353] or6 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:354] or7 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:355] or8 | S-Function | Ports=[10 1 0 0 0 0 0 0]
+  BLK [text28:356] output | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": Motor_mux:1 -> output:1
+  LINE "(unnamed)": Demand_Speed:1 -> or1:1
+  LINE "(unnamed)": Demand_Speed:2 -> or2:1
+  LINE "(unnamed)": Demand_Speed:3 -> or3:1
+  LINE "(unnamed)": Demand_Speed:4 -> or4:1
+  LINE "(unnamed)": Demand_Speed:5 -> or5:1
+  LINE "(unnamed)": Demand_Speed:6 -> or6:1
+  LINE "(unnamed)": Demand_Speed:7 -> or7:1
+  LINE "(unnamed)": Demand_Speed:8 -> or8:1
+  LINE "(unnamed)": Demand_Torquee:1 -> or1:2
+  LINE "(unnamed)": Demand_Torquee:2 -> or2:2
+  LINE "(unnamed)": Demand_Torquee:3 -> or3:2
+  LINE "(unnamed)": Demand_Torquee:4 -> or4:2
+  LINE "(unnamed)": Demand_Torquee:5 -> or5:2
+  LINE "(unnamed)": Demand_Torquee:6 -> or6:2
+  LINE "(unnamed)": Demand_Torquee:7 -> or7:2
+  LINE "(unnamed)": Demand_Torquee:8 -> or8:2
+  LINE "(unnamed)": Low_Value:1 -> or1:3
+  LINE "(unnamed)": Low_Value:2 -> or2:3
+  LINE "(unnamed)": Low_Value:3 -> or3:3
+  LINE "(unnamed)": Low_Value:4 -> or4:3
+  LINE "(unnamed)": Low_Value:5 -> or5:3
+  LINE "(unnamed)": Low_Value:6 -> or6:3
+  LINE "(unnamed)": Low_Value:7 -> or7:3
+  LINE "(unnamed)": Low_Value:8 -> or8:3
+  LINE "(unnamed)": High_Value:1 -> or1:4
+  LINE "(unnamed)": High_Value:2 -> or2:4
+  LINE "(unnamed)": High_Value:3 -> or3:4
+  LINE "(unnamed)": High_Value:4 -> or4:4
+  LINE "(unnamed)": High_Value:5 -> or5:4
+  LINE "(unnamed)": High_Value:6 -> or6:4
+  LINE "(unnamed)": High_Value:7 -> or7:4
+  LINE "(unnamed)": High_Value:8 -> or8:4
+  LINE "(unnamed)": handBrake:1 -> or1:5
+  LINE "(unnamed)": handBrake:2 -> or2:5
+  LINE "(unnamed)": handBrake:3 -> or3:5
+  LINE "(unnamed)": handBrake:4 -> or4:5
+  LINE "(unnamed)": handBrake:5 -> or5:5
+  LINE "(unnamed)": handBrake:6 -> or6:5
+  LINE "(unnamed)": handBrake:7 -> or7:5
+  LINE "(unnamed)": handBrake:8 -> or8:5
+  LINE "(unnamed)": FootBrake:1 -> or1:6
+  LINE "(unnamed)": FootBrake:2 -> or2:6
+  LINE "(unnamed)": FootBrake:3 -> or3:6
+  LINE "(unnamed)": FootBrake:4 -> or4:6
+  LINE "(unnamed)": FootBrake:5 -> or5:6
+  LINE "(unnamed)": FootBrake:6 -> or6:6
+  LINE "(unnamed)": FootBrake:7 -> or7:6
+  LINE "(unnamed)": FootBrake:8 -> or8:6
+  LINE "(unnamed)": Gear:1 -> or1:7
+  LINE "(unnamed)": Gear:2 -> or2:7
+  LINE "(unnamed)": Gear:3 -> or3:7
+  LINE "(unnamed)": Gear:4 -> or4:7
+  LINE "(unnamed)": Gear:5 -> or5:7
+  LINE "(unnamed)": Gear:6 -> or6:7
+  LINE "(unnamed)": Gear:7 -> or7:7
+  LINE "(unnamed)": Gear:8 -> or8:7
+  LINE "(unnamed)": Control_Mode:1 -> or1:8
+  LINE "(unnamed)": Control_Mode:2 -> or2:8
+  LINE "(unnamed)": Control_Mode:3 -> or3:8
+  LINE "(unnamed)": Control_Mode:4 -> or4:8
+  LINE "(unnamed)": Control_Mode:5 -> or5:8
+  LINE "(unnamed)": Control_Mode:6 -> or6:8
+  LINE "(unnamed)": Control_Mode:7 -> or7:8
+  LINE "(unnamed)": Control_Mode:8 -> or8:8
+  LINE "(unnamed)": Fault_Reset:1 -> or1:9
+  LINE "(unnamed)": Fault_Reset:2 -> or2:9
+  LINE "(unnamed)": Fault_Reset:3 -> or3:9
+  LINE "(unnamed)": Fault_Reset:4 -> or4:9
+  LINE "(unnamed)": Fault_Reset:5 -> or5:9
+  LINE "(unnamed)": Fault_Reset:6 -> or6:9
+  LINE "(unnamed)": Fault_Reset:7 -> or7:9
+  LINE "(unnamed)": Fault_Reset:8 -> or8:9
+  LINE "(unnamed)": MCU_Enable:1 -> or1:10
+  LINE "(unnamed)": MCU_Enable:2 -> or2:10
+  LINE "(unnamed)": MCU_Enable:3 -> or3:10
+  LINE "(unnamed)": MCU_Enable:4 -> or4:10
+  LINE "(unnamed)": MCU_Enable:5 -> or5:10
+  LINE "(unnamed)": MCU_Enable:6 -> or6:10
+  LINE "(unnamed)": MCU_Enable:7 -> or7:10
+  LINE "(unnamed)": MCU_Enable:8 -> or8:10
+  LINE "(unnamed)": or1:1 -> Conv1:1
+  LINE "(unnamed)": Conv1:1 -> Motor_mux:1
+  LINE "(unnamed)": or2:1 -> Conv2:1
+  LINE "(unnamed)": Conv2:1 -> Motor_mux:2
+  LINE "(unnamed)": or3:1 -> Conv3:1
+  LINE "(unnamed)": Conv3:1 -> Motor_mux:3
+  LINE "(unnamed)": or4:1 -> Conv4:1
+  LINE "(unnamed)": Conv4:1 -> Motor_mux:4
+  LINE "(unnamed)": or5:1 -> Conv5:1
+  LINE "(unnamed)": Conv5:1 -> Motor_mux:5
+  LINE "(unnamed)": or6:1 -> Conv6:1
+  LINE "(unnamed)": Conv6:1 -> Motor_mux:6
+  LINE "(unnamed)": or7:1 -> Conv7:1
+  LINE "(unnamed)": Conv7:1 -> Motor_mux:7
+  LINE "(unnamed)": or8:1 -> Conv8:1
+  LINE "(unnamed)": Conv8:1 -> Motor_mux:8
+  LINE "(unnamed)": Motor_ID:1 -> Motor_ID_Out:1
+  LINE "(unnamed)": Motor_DLC:1 -> Motor_DLC_Out:1
+  LINE "(unnamed)": Demand_Speed_in:1 -> Demand_Speed:1
+  LINE "(unnamed)": Demand_Torquee_in:1 -> Demand_Torquee:1
+  LINE "(unnamed)": Low_Value_in:1 -> Low_Value:1
+  LINE "(unnamed)": High_Value_in:1 -> High_Value:1
+  LINE "(unnamed)": handBrake_in:1 -> handBrake:1
+  LINE "(unnamed)": FootBrake_in:1 -> FootBrake:1
+  LINE "(unnamed)": Gear_in:1 -> Gear:1
+  LINE "(unnamed)": Control_Mode_in:1 -> Control_Mode:1
+  LINE "(unnamed)": Fault_Reset_in:1 -> Fault_Reset:1
+  LINE "(unnamed)": MCU_Enable_in:1 -> MCU_Enable:1
+
+=== front wheel speed | text28/驱动系统/Subsystem/前轮转速 ===
+  BLK [text28:1012] Gain | Gain | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:1013] 轮速 | SubSystem | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1029] 前轮车速 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  BLK [text28:1030] 车速 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": Gain:1 -> 车速:1
+  LINE "(unnamed)": 轮速:1 -> 前轮车速:1
+  LINE "(unnamed)": 轮速:1 -> Gain:1
+  LINE "(unnamed)": 轮速:1 -> Gain:1
+
+=== slip calc | text28/驱动系统/Subsystem/滑转率计算 ===
+  BLK [text28:1978] 前轮车速 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1979] 后轮车速  | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1980] Constant1 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1981] Constant2 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:1982] Sum | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1983] Sum1 | Sum | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1984] 滑转率计算 | SubSystem | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:1992] 滑转率 | Outport | Ports=[1 0 0 0 0 0 0 0]
+  LINE "(unnamed)": 滑转率计算:1 -> 滑转率:1
+  LINE "(unnamed)": Constant2:1 -> Sum1:2
+  LINE "(unnamed)": 后轮车速 :1 -> Sum1:1
+  LINE "(unnamed)": Constant1:1 -> Sum:2
+  LINE "(unnamed)": 前轮车速:1 -> Sum:1
+  LINE "(unnamed)": Sum:1 -> 滑转率计算:1
+  LINE "(unnamed)": Sum1:1 -> 滑转率计算:2
+
+=== safety out subsystem | text28/驱动系统/Subsystem2 ===
+  BLK [text28:2934] In1 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2935] In2 | Inport | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2936] Constant4 | Constant | Ports=[0 1 0 0 0 0 0 0]
+  BLK [text28:2937] Data Type Conversion2 | DataTypeConversion | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2938] Logical
+Operator | Logic | Ports=[2 1 0 0 0 0 0 0]
+  BLK [text28:2939] MeaModule1 | SubSystem | Ports=[1 1 0 0 0 0 0 0]
+  BLK [text28:2940] 安全出 | S-Function | Ports=[2 0 0 0 0 0 0 0]
+  LINE "(unnamed)": In2:1 -> Logical
+Operator:2
+  LINE "(unnamed)": In1:1 -> Logical
+Operator:1
+  LINE "(unnamed)": Logical
+Operator:1 -> Data Type Conversion2:1
+  LINE "(unnamed)": MeaModule1:1 -> 安全出:2
+  LINE "(unnamed)": Constant4:1 -> 安全出:1
+  LINE "(unnamed)": Data Type Conversion2:1 -> MeaModule1:1
+
+=== Drive_AEKF | text28/驱动系统/Subsystem/Drive_AEKF ===
+  BLK T_base | Inport
+  BLK w_rpm | Inport
+  BLK Te_raw | Inport
+  BLK T_base_d | DataTypeConversion
+  BLK Te_raw_d | DataTypeConversion
+  BLK TorqueDelta | Sum
+  BLK TorqueDeltaSat | Saturate
+  BLK TorquePrev | UnitDelay
+  BLK TorqueSum | Sum
+  BLK aekf_comp | SubSystem
+  BLK w_rpm_d | DataTypeConversion
+  BLK T_opt | Outport
+  LINE TorqueSum -> TorquePrev
+  LINE TorqueSum -> T_opt
+  LINE TorqueSum -> T_opt
+  LINE TorqueDeltaSat -> TorqueSum
+  LINE TorqueDelta -> TorqueDeltaSat
+  LINE TorquePrev -> TorqueSum
+  LINE TorquePrev -> TorqueDelta
+  LINE TorquePrev -> TorqueDelta
+  LINE aekf_comp -> TorqueDelta
+  LINE Te_raw_d -> aekf_comp
+  LINE w_rpm_d -> aekf_comp
+  LINE T_base_d -> aekf_comp
+  LINE Te_raw -> Te_raw_d
+  LINE w_rpm -> w_rpm_d
+  LINE T_base -> T_base_d
+
+REVIEW_DONE

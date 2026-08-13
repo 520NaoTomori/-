@@ -1,0 +1,1338 @@
+DRIVE_PATH=text28/驱动系统
+
+=== ALL BLOCKS UNDER DRIVE (995) ===
+[text28:2] text28/驱动系统 | SubSystem
+[text28:3] text28/驱动系统/function | TriggerPort | TriggerType=function-call
+[text28:4] text28/驱动系统/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:5] text28/驱动系统/Data Type Conversion | DataTypeConversion | OutDataTypeStr=boolean, ConvertRealWorld=Real World Value (RWV)
+[text28:6] text28/驱动系统/ECU | SubSystem
+[text28:9] text28/驱动系统/ECU/扭矩输入
+ | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:7] text28/驱动系统/ECU/Res | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:8] text28/驱动系统/ECU/Enble
+ | Inport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:10] text28/驱动系统/ECU/Constant | Constant | Value=2, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:11] text28/驱动系统/ECU/Constant1 | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3091] text28/驱动系统/ECU/Constant2 | Constant | Value=9000, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:13] text28/驱动系统/ECU/FootBrake | Ground
+[text28:14] text28/驱动系统/ECU/Motor | SubSystem
+[text28:15] text28/驱动系统/ECU/Motor/Demand_Speed_in | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:16] text28/驱动系统/ECU/Motor/Demand_Torquee_in | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:17] text28/驱动系统/ECU/Motor/Low_Value_in | Inport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:18] text28/驱动系统/ECU/Motor/High_Value_in | Inport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:19] text28/驱动系统/ECU/Motor/handBrake_in | Inport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:20] text28/驱动系统/ECU/Motor/FootBrake_in | Inport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:21] text28/驱动系统/ECU/Motor/Gear_in | Inport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:22] text28/驱动系统/ECU/Motor/Control_Mode_in | Inport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:23] text28/驱动系统/ECU/Motor/Fault_Reset_in | Inport | Port=9, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:24] text28/驱动系统/ECU/Motor/MCU_Enable_in | Inport | Port=10, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:25] text28/驱动系统/ECU/Motor/Control_Mode | SubSystem
+[text28:26] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:27] text28/驱动系统/ECU/Motor/Control_Mode/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:28] text28/驱动系统/ECU/Motor/Control_Mode/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:29] text28/驱动系统/ECU/Motor/Control_Mode/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:30] text28/驱动系统/ECU/Motor/Control_Mode/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:31] text28/驱动系统/ECU/Motor/Control_Mode/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:32] text28/驱动系统/ECU/Motor/Control_Mode/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:33] text28/驱动系统/ECU/Motor/Control_Mode/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:34] text28/驱动系统/ECU/Motor/Control_Mode/Control_ModeRon | Rounding
+[text28:35] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_1sat | Saturate | UpperLimit=12, LowerLimit=0
+[text28:36] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_Convert | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:37] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_Convert1 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:38] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:39] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_F | Constant | Value=1, OutDataTypeStr=single
+[text28:40] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:41] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_O | Constant | Value=0, OutDataTypeStr=single
+[text28:42] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_S | ArithShift
+[text28:43] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_sat | Saturate | UpperLimit=2, LowerLimit=0
+[text28:44] text28/驱动系统/ECU/Motor/Control_Mode/Control_Mode_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:45] text28/驱动系统/ECU/Motor/Control_Mode/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:46] text28/驱动系统/ECU/Motor/Control_Mode/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:47] text28/驱动系统/ECU/Motor/Control_Mode/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:48] text28/驱动系统/ECU/Motor/Control_Mode/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:49] text28/驱动系统/ECU/Motor/Control_Mode/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:50] text28/驱动系统/ECU/Motor/Control_Mode/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:51] text28/驱动系统/ECU/Motor/Control_Mode/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:52] text28/驱动系统/ECU/Motor/Control_Mode/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:53] text28/驱动系统/ECU/Motor/Conv1 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:54] text28/驱动系统/ECU/Motor/Conv2 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:55] text28/驱动系统/ECU/Motor/Conv3 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:56] text28/驱动系统/ECU/Motor/Conv4 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:57] text28/驱动系统/ECU/Motor/Conv5 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:58] text28/驱动系统/ECU/Motor/Conv6 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:59] text28/驱动系统/ECU/Motor/Conv7 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:60] text28/驱动系统/ECU/Motor/Conv8 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:61] text28/驱动系统/ECU/Motor/Demand_Speed | SubSystem
+[text28:62] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:63] text28/驱动系统/ECU/Motor/Demand_Speed/BitCov | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:64] text28/驱动系统/ECU/Motor/Demand_Speed/Constant1 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:65] text28/驱动系统/ECU/Motor/Demand_Speed/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:66] text28/驱动系统/ECU/Motor/Demand_Speed/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:67] text28/驱动系统/ECU/Motor/Demand_Speed/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:68] text28/驱动系统/ECU/Motor/Demand_Speed/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:69] text28/驱动系统/ECU/Motor/Demand_Speed/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:70] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedABS | Abs
+[text28:71] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedCOV | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:72] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedCS | ArithShift
+[text28:73] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedConS | Constant | Value=1, OutDataTypeStr=single
+[text28:74] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedCosR | Constant | Value=0, OutDataTypeStr=uint8
+[text28:75] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedROP | RelationalOperator | Operator=<
+[text28:76] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedRon | Rounding
+[text28:77] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_SpeedSW | Switch | Criteria=u2 ~= 0, Threshold=0
+[text28:78] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_1sat | Saturate | UpperLimit=65535, LowerLimit=0
+[text28:79] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_And | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:80] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_And_C | Constant | Value=255, OutDataTypeStr=uint32
+[text28:81] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:82] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:83] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_D1 | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:84] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_F | Constant | Value=1, OutDataTypeStr=single
+[text28:85] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:86] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_O | Constant | Value=-15000, OutDataTypeStr=single
+[text28:87] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_S | ArithShift
+[text28:88] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_sat | Saturate | UpperLimit=15000, LowerLimit=-15000
+[text28:89] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speed_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:90] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speedoutput8_C | Constant | Value=256, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:91] text28/驱动系统/ECU/Motor/Demand_Speed/Demand_Speedsubcon | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:92] text28/驱动系统/ECU/Motor/Demand_Speed/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:93] text28/驱动系统/ECU/Motor/Demand_Speed/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:94] text28/驱动系统/ECU/Motor/Demand_Speed/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:95] text28/驱动系统/ECU/Motor/Demand_Speed/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:96] text28/驱动系统/ECU/Motor/Demand_Speed/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:97] text28/驱动系统/ECU/Motor/Demand_Speed/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:98] text28/驱动系统/ECU/Motor/Demand_Speed/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:99] text28/驱动系统/ECU/Motor/Demand_Speed/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:100] text28/驱动系统/ECU/Motor/Demand_Torquee | SubSystem
+[text28:101] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:102] text28/驱动系统/ECU/Motor/Demand_Torquee/BitCov | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:103] text28/驱动系统/ECU/Motor/Demand_Torquee/Constant1 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:104] text28/驱动系统/ECU/Motor/Demand_Torquee/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:105] text28/驱动系统/ECU/Motor/Demand_Torquee/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:106] text28/驱动系统/ECU/Motor/Demand_Torquee/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:107] text28/驱动系统/ECU/Motor/Demand_Torquee/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:108] text28/驱动系统/ECU/Motor/Demand_Torquee/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:109] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeABS | Abs
+[text28:110] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeCOV | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:111] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeCS | ArithShift
+[text28:112] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeConS | Constant | Value=1, OutDataTypeStr=single
+[text28:113] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeCosR | Constant | Value=0, OutDataTypeStr=uint8
+[text28:114] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeROP | RelationalOperator | Operator=<
+[text28:115] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeRon | Rounding
+[text28:116] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_TorqueeSW | Switch | Criteria=u2 ~= 0, Threshold=0
+[text28:117] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_1sat | Saturate | UpperLimit=65535, LowerLimit=0
+[text28:118] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_And | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:119] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_And_C | Constant | Value=255, OutDataTypeStr=uint32
+[text28:120] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:121] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:122] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_D1 | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:123] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_F | Constant | Value=1, OutDataTypeStr=single
+[text28:124] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:125] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_O | Constant | Value=-5000, OutDataTypeStr=single
+[text28:126] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_S | ArithShift
+[text28:127] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_sat | Saturate | UpperLimit=5000, LowerLimit=-5000
+[text28:128] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torquee_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:129] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torqueeoutput6_C | Constant | Value=256, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:130] text28/驱动系统/ECU/Motor/Demand_Torquee/Demand_Torqueesubcon | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:131] text28/驱动系统/ECU/Motor/Demand_Torquee/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:132] text28/驱动系统/ECU/Motor/Demand_Torquee/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:133] text28/驱动系统/ECU/Motor/Demand_Torquee/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:134] text28/驱动系统/ECU/Motor/Demand_Torquee/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:135] text28/驱动系统/ECU/Motor/Demand_Torquee/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:136] text28/驱动系统/ECU/Motor/Demand_Torquee/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:137] text28/驱动系统/ECU/Motor/Demand_Torquee/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:138] text28/驱动系统/ECU/Motor/Demand_Torquee/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:139] text28/驱动系统/ECU/Motor/Fault_Reset | SubSystem
+[text28:140] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:141] text28/驱动系统/ECU/Motor/Fault_Reset/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:142] text28/驱动系统/ECU/Motor/Fault_Reset/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:143] text28/驱动系统/ECU/Motor/Fault_Reset/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:144] text28/驱动系统/ECU/Motor/Fault_Reset/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:145] text28/驱动系统/ECU/Motor/Fault_Reset/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:146] text28/驱动系统/ECU/Motor/Fault_Reset/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:147] text28/驱动系统/ECU/Motor/Fault_Reset/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:148] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_ResetRon | Rounding
+[text28:149] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_1sat | Saturate | UpperLimit=2, LowerLimit=0
+[text28:150] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_Convert | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:151] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_Convert1 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:152] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:153] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_F | Constant | Value=1, OutDataTypeStr=single
+[text28:154] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:155] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_O | Constant | Value=0, OutDataTypeStr=single
+[text28:156] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_S | ArithShift
+[text28:157] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_sat | Saturate | UpperLimit=1, LowerLimit=0
+[text28:158] text28/驱动系统/ECU/Motor/Fault_Reset/Fault_Reset_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:159] text28/驱动系统/ECU/Motor/Fault_Reset/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:160] text28/驱动系统/ECU/Motor/Fault_Reset/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:161] text28/驱动系统/ECU/Motor/Fault_Reset/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:162] text28/驱动系统/ECU/Motor/Fault_Reset/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:163] text28/驱动系统/ECU/Motor/Fault_Reset/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:164] text28/驱动系统/ECU/Motor/Fault_Reset/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:165] text28/驱动系统/ECU/Motor/Fault_Reset/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:166] text28/驱动系统/ECU/Motor/Fault_Reset/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:167] text28/驱动系统/ECU/Motor/FootBrake | SubSystem
+[text28:168] text28/驱动系统/ECU/Motor/FootBrake/FootBrake | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:169] text28/驱动系统/ECU/Motor/FootBrake/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:170] text28/驱动系统/ECU/Motor/FootBrake/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:171] text28/驱动系统/ECU/Motor/FootBrake/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:172] text28/驱动系统/ECU/Motor/FootBrake/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:173] text28/驱动系统/ECU/Motor/FootBrake/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:174] text28/驱动系统/ECU/Motor/FootBrake/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:175] text28/驱动系统/ECU/Motor/FootBrake/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:176] text28/驱动系统/ECU/Motor/FootBrake/FootBrakeRon | Rounding
+[text28:177] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_1sat | Saturate | UpperLimit=64, LowerLimit=0
+[text28:178] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_Convert | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:179] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_Convert1 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:180] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:181] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_F | Constant | Value=1, OutDataTypeStr=single
+[text28:182] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:183] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_O | Constant | Value=0, OutDataTypeStr=single
+[text28:184] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_S | ArithShift
+[text28:185] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_sat | Saturate | UpperLimit=1, LowerLimit=0
+[text28:186] text28/驱动系统/ECU/Motor/FootBrake/FootBrake_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:187] text28/驱动系统/ECU/Motor/FootBrake/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:188] text28/驱动系统/ECU/Motor/FootBrake/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:189] text28/驱动系统/ECU/Motor/FootBrake/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:190] text28/驱动系统/ECU/Motor/FootBrake/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:191] text28/驱动系统/ECU/Motor/FootBrake/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:192] text28/驱动系统/ECU/Motor/FootBrake/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:193] text28/驱动系统/ECU/Motor/FootBrake/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:194] text28/驱动系统/ECU/Motor/FootBrake/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:195] text28/驱动系统/ECU/Motor/Gear | SubSystem
+[text28:196] text28/驱动系统/ECU/Motor/Gear/Gear | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:197] text28/驱动系统/ECU/Motor/Gear/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:198] text28/驱动系统/ECU/Motor/Gear/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:199] text28/驱动系统/ECU/Motor/Gear/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:200] text28/驱动系统/ECU/Motor/Gear/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:201] text28/驱动系统/ECU/Motor/Gear/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:202] text28/驱动系统/ECU/Motor/Gear/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:203] text28/驱动系统/ECU/Motor/Gear/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:204] text28/驱动系统/ECU/Motor/Gear/GearRon | Rounding
+[text28:205] text28/驱动系统/ECU/Motor/Gear/Gear_1sat | Saturate | UpperLimit=48, LowerLimit=0
+[text28:206] text28/驱动系统/ECU/Motor/Gear/Gear_Convert | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:207] text28/驱动系统/ECU/Motor/Gear/Gear_Convert1 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:208] text28/驱动系统/ECU/Motor/Gear/Gear_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:209] text28/驱动系统/ECU/Motor/Gear/Gear_F | Constant | Value=1, OutDataTypeStr=single
+[text28:210] text28/驱动系统/ECU/Motor/Gear/Gear_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:211] text28/驱动系统/ECU/Motor/Gear/Gear_O | Constant | Value=0, OutDataTypeStr=single
+[text28:212] text28/驱动系统/ECU/Motor/Gear/Gear_S | ArithShift
+[text28:213] text28/驱动系统/ECU/Motor/Gear/Gear_sat | Saturate | UpperLimit=2, LowerLimit=0
+[text28:214] text28/驱动系统/ECU/Motor/Gear/Gear_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:215] text28/驱动系统/ECU/Motor/Gear/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:216] text28/驱动系统/ECU/Motor/Gear/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:217] text28/驱动系统/ECU/Motor/Gear/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:218] text28/驱动系统/ECU/Motor/Gear/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:219] text28/驱动系统/ECU/Motor/Gear/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:220] text28/驱动系统/ECU/Motor/Gear/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:221] text28/驱动系统/ECU/Motor/Gear/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:222] text28/驱动系统/ECU/Motor/Gear/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:223] text28/驱动系统/ECU/Motor/High_Value | SubSystem
+[text28:224] text28/驱动系统/ECU/Motor/High_Value/High_Value | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:225] text28/驱动系统/ECU/Motor/High_Value/Constant1 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:226] text28/驱动系统/ECU/Motor/High_Value/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:227] text28/驱动系统/ECU/Motor/High_Value/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:228] text28/驱动系统/ECU/Motor/High_Value/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:229] text28/驱动系统/ECU/Motor/High_Value/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:230] text28/驱动系统/ECU/Motor/High_Value/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:231] text28/驱动系统/ECU/Motor/High_Value/High_ValueBitCov | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:232] text28/驱动系统/ECU/Motor/High_Value/High_ValueCOV | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:233] text28/驱动系统/ECU/Motor/High_Value/High_ValueRon | Rounding
+[text28:234] text28/驱动系统/ECU/Motor/High_Value/High_Value_1sat | Saturate | UpperLimit=4095, LowerLimit=0
+[text28:235] text28/驱动系统/ECU/Motor/High_Value/High_Value_And | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:236] text28/驱动系统/ECU/Motor/High_Value/High_Value_And_C | Constant | Value=255, OutDataTypeStr=uint32
+[text28:237] text28/驱动系统/ECU/Motor/High_Value/High_Value_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:238] text28/驱动系统/ECU/Motor/High_Value/High_Value_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:239] text28/驱动系统/ECU/Motor/High_Value/High_Value_D1 | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:240] text28/驱动系统/ECU/Motor/High_Value/High_Value_F | Constant | Value=4, OutDataTypeStr=single
+[text28:241] text28/驱动系统/ECU/Motor/High_Value/High_Value_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:242] text28/驱动系统/ECU/Motor/High_Value/High_Value_O | Constant | Value=0, OutDataTypeStr=single
+[text28:243] text28/驱动系统/ECU/Motor/High_Value/High_Value_S | ArithShift
+[text28:244] text28/驱动系统/ECU/Motor/High_Value/High_Value_sat | Saturate | UpperLimit=16384, LowerLimit=0
+[text28:245] text28/驱动系统/ECU/Motor/High_Value/High_Value_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:246] text28/驱动系统/ECU/Motor/High_Value/High_Valueoutput3_C | Constant | Value=256, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:247] text28/驱动系统/ECU/Motor/High_Value/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:248] text28/驱动系统/ECU/Motor/High_Value/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:249] text28/驱动系统/ECU/Motor/High_Value/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:250] text28/驱动系统/ECU/Motor/High_Value/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:251] text28/驱动系统/ECU/Motor/High_Value/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:252] text28/驱动系统/ECU/Motor/High_Value/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:253] text28/驱动系统/ECU/Motor/High_Value/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:254] text28/驱动系统/ECU/Motor/High_Value/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:255] text28/驱动系统/ECU/Motor/Low_Value | SubSystem
+[text28:256] text28/驱动系统/ECU/Motor/Low_Value/Low_Value | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:257] text28/驱动系统/ECU/Motor/Low_Value/Constant1 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:258] text28/驱动系统/ECU/Motor/Low_Value/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:259] text28/驱动系统/ECU/Motor/Low_Value/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:260] text28/驱动系统/ECU/Motor/Low_Value/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:261] text28/驱动系统/ECU/Motor/Low_Value/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:262] text28/驱动系统/ECU/Motor/Low_Value/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:263] text28/驱动系统/ECU/Motor/Low_Value/Low_ValueBitCov | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:264] text28/驱动系统/ECU/Motor/Low_Value/Low_ValueCOV | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:265] text28/驱动系统/ECU/Motor/Low_Value/Low_ValueRon | Rounding
+[text28:266] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_1sat | Saturate | UpperLimit=65520, LowerLimit=0
+[text28:267] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_And | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:268] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_And_C | Constant | Value=255, OutDataTypeStr=uint32
+[text28:269] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:270] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:271] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_D1 | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:272] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_F | Constant | Value=4, OutDataTypeStr=single
+[text28:273] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:274] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_O | Constant | Value=0, OutDataTypeStr=single
+[text28:275] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_S | ArithShift
+[text28:276] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_sat | Saturate | UpperLimit=16384, LowerLimit=0
+[text28:277] text28/驱动系统/ECU/Motor/Low_Value/Low_Value_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:278] text28/驱动系统/ECU/Motor/Low_Value/Low_Valueoutput4_C | Constant | Value=256, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:279] text28/驱动系统/ECU/Motor/Low_Value/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:280] text28/驱动系统/ECU/Motor/Low_Value/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:281] text28/驱动系统/ECU/Motor/Low_Value/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:282] text28/驱动系统/ECU/Motor/Low_Value/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:283] text28/驱动系统/ECU/Motor/Low_Value/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:284] text28/驱动系统/ECU/Motor/Low_Value/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:285] text28/驱动系统/ECU/Motor/Low_Value/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:286] text28/驱动系统/ECU/Motor/Low_Value/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:287] text28/驱动系统/ECU/Motor/MCU_Enable | SubSystem
+[text28:288] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:289] text28/驱动系统/ECU/Motor/MCU_Enable/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:290] text28/驱动系统/ECU/Motor/MCU_Enable/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:291] text28/驱动系统/ECU/Motor/MCU_Enable/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:292] text28/驱动系统/ECU/Motor/MCU_Enable/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:293] text28/驱动系统/ECU/Motor/MCU_Enable/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:294] text28/驱动系统/ECU/Motor/MCU_Enable/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:295] text28/驱动系统/ECU/Motor/MCU_Enable/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:296] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_EnableRon | Rounding
+[text28:297] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_1sat | Saturate | UpperLimit=1, LowerLimit=0
+[text28:298] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_Convert | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:299] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_Convert1 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:300] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:301] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_F | Constant | Value=1, OutDataTypeStr=single
+[text28:302] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:303] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_O | Constant | Value=0, OutDataTypeStr=single
+[text28:304] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_S | ArithShift
+[text28:305] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_sat | Saturate | UpperLimit=1, LowerLimit=0
+[text28:306] text28/驱动系统/ECU/Motor/MCU_Enable/MCU_Enable_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:307] text28/驱动系统/ECU/Motor/MCU_Enable/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:308] text28/驱动系统/ECU/Motor/MCU_Enable/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:309] text28/驱动系统/ECU/Motor/MCU_Enable/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:310] text28/驱动系统/ECU/Motor/MCU_Enable/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:311] text28/驱动系统/ECU/Motor/MCU_Enable/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:312] text28/驱动系统/ECU/Motor/MCU_Enable/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:313] text28/驱动系统/ECU/Motor/MCU_Enable/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:314] text28/驱动系统/ECU/Motor/MCU_Enable/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:315] text28/驱动系统/ECU/Motor/Motor_DLC | Constant | Value=8, OutDataTypeStr=uint8
+[text28:316] text28/驱动系统/ECU/Motor/Motor_DLC_Out | Terminator
+[text28:317] text28/驱动系统/ECU/Motor/Motor_ID | Constant | Value=2147483648, OutDataTypeStr=single
+[text28:318] text28/驱动系统/ECU/Motor/Motor_ID_Out | Terminator
+[text28:319] text28/驱动系统/ECU/Motor/Motor_mux | Mux | Inputs=8
+[text28:320] text28/驱动系统/ECU/Motor/handBrake | SubSystem
+[text28:321] text28/驱动系统/ECU/Motor/handBrake/handBrake | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:322] text28/驱动系统/ECU/Motor/handBrake/Constant2 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:323] text28/驱动系统/ECU/Motor/handBrake/Constant3 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:324] text28/驱动系统/ECU/Motor/handBrake/Constant4 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:325] text28/驱动系统/ECU/Motor/handBrake/Constant5 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:326] text28/驱动系统/ECU/Motor/handBrake/Constant6 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:327] text28/驱动系统/ECU/Motor/handBrake/Constant7 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:328] text28/驱动系统/ECU/Motor/handBrake/Constant8 | Constant | Value=0, OutDataTypeStr=uint8
+[text28:329] text28/驱动系统/ECU/Motor/handBrake/handBrakeRon | Rounding
+[text28:330] text28/驱动系统/ECU/Motor/handBrake/handBrake_1sat | Saturate | UpperLimit=128, LowerLimit=0
+[text28:331] text28/驱动系统/ECU/Motor/handBrake/handBrake_Convert | DataTypeConversion | OutDataTypeStr=uint8, ConvertRealWorld=Real World Value (RWV)
+[text28:332] text28/驱动系统/ECU/Motor/handBrake/handBrake_Convert1 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:333] text28/驱动系统/ECU/Motor/handBrake/handBrake_D | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:334] text28/驱动系统/ECU/Motor/handBrake/handBrake_F | Constant | Value=1, OutDataTypeStr=single
+[text28:335] text28/驱动系统/ECU/Motor/handBrake/handBrake_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:336] text28/驱动系统/ECU/Motor/handBrake/handBrake_O | Constant | Value=0, OutDataTypeStr=single
+[text28:337] text28/驱动系统/ECU/Motor/handBrake/handBrake_S | ArithShift
+[text28:338] text28/驱动系统/ECU/Motor/handBrake/handBrake_sat | Saturate | UpperLimit=0, LowerLimit=0
+[text28:339] text28/驱动系统/ECU/Motor/handBrake/handBrake_st | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:340] text28/驱动系统/ECU/Motor/handBrake/output1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:341] text28/驱动系统/ECU/Motor/handBrake/output2 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:342] text28/驱动系统/ECU/Motor/handBrake/output3 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:343] text28/驱动系统/ECU/Motor/handBrake/output4 | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:344] text28/驱动系统/ECU/Motor/handBrake/output5 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:345] text28/驱动系统/ECU/Motor/handBrake/output6 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:346] text28/驱动系统/ECU/Motor/handBrake/output7 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:347] text28/驱动系统/ECU/Motor/handBrake/output8 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:348] text28/驱动系统/ECU/Motor/or1 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:349] text28/驱动系统/ECU/Motor/or2 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:350] text28/驱动系统/ECU/Motor/or3 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:351] text28/驱动系统/ECU/Motor/or4 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:352] text28/驱动系统/ECU/Motor/or5 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:353] text28/驱动系统/ECU/Motor/or6 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:354] text28/驱动系统/ECU/Motor/or7 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:355] text28/驱动系统/ECU/Motor/or8 | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:356] text28/驱动系统/ECU/Motor/output | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:357] text28/驱动系统/ECU/demand_speed | Ground
+[text28:358] text28/驱动系统/ECU/handBrake | Ground
+[text28:359] text28/驱动系统/ECU/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:360] text28/驱动系统/MCU_can总线 | SubSystem
+[text28:361] text28/驱动系统/MCU_can总线/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:362] text28/驱动系统/MCU_can总线/CANTransmit | S-Function | FunctionName=ec55xx_cantransmitslb, Parameters=uint8(canmodule-1),uint8(canbuffer-1),uint32(canmessageid),uint8(canmessagetype-1),uint8(datalength),sampletime
+[text28:363] text28/驱动系统/MCU_can总线/MeaModule | SubSystem
+[text28:363:1989] text28/驱动系统/MCU_can总线/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:363:1990] text28/驱动系统/MCU_can总线/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2941] text28/驱动系统/MCU_can总线/Terminator | Terminator
+[text28:2942] text28/驱动系统/MCU_can总线/安全回路out | SubSystem
+[text28:2943] text28/驱动系统/MCU_can总线/安全回路out/CAN ok | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2944] text28/驱动系统/MCU_can总线/安全回路out/Data Type Conversion1 | DataTypeConversion | OutDataTypeStr=double, ConvertRealWorld=Real World Value (RWV)
+[text28:2945] text28/驱动系统/MCU_can总线/安全回路out/If | If | IfExpression=u1 < 2, ElseIfExpressions=, ShowElse=on
+[text28:2946] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem1 | SubSystem
+[text28:2947] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem1/Action Port | ActionPort
+[text28:2948] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem1/Constant1 | Constant | Value=0, OutDataTypeStr=uint32
+[text28:2949] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem1/Data Type Conversion2 | DataTypeConversion | OutDataTypeStr=double, ConvertRealWorld=Real World Value (RWV)
+[text28:2950] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem1/Out2 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2951] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem2 | SubSystem
+[text28:2952] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem2/Action Port | ActionPort
+[text28:2953] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem2/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2954] text28/驱动系统/MCU_can总线/安全回路out/If Action
+Subsystem2/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2955] text28/驱动系统/MCU_can总线/安全回路out/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:2956] text28/驱动系统/MCU_can总线/安全回路out/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2957] text28/驱动系统/MCU_can总线/系统关键信号 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:365] text28/驱动系统/MainRelaySwitch | S-Function | FunctionName=ec55xx_mrsslb, Parameters=sampletime
+[text28:546] text28/驱动系统/Subsystem | SubSystem
+[text28:921] text28/驱动系统/Subsystem/appsrule | SubSystem
+[text28:1009] text28/驱动系统/Subsystem/appsrule/油门1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:922] text28/驱动系统/Subsystem/appsrule/油门 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:923] text28/驱动系统/Subsystem/appsrule/刹车 | Inport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:924] text28/驱动系统/Subsystem/appsrule/MeaModule | SubSystem
+[text28:924:1989] text28/驱动系统/Subsystem/appsrule/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:924:1990] text28/驱动系统/Subsystem/appsrule/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1039] text28/驱动系统/Subsystem/appsrule/MeaModule1 | SubSystem
+[text28:1039:1989] text28/驱动系统/Subsystem/appsrule/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1039:1990] text28/驱动系统/Subsystem/appsrule/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:925] text28/驱动系统/Subsystem/appsrule/Product | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:926] text28/驱动系统/Subsystem/appsrule/Product1 | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:927] text28/驱动系统/Subsystem/appsrule/Sum | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:928] text28/驱动系统/Subsystem/appsrule/Unit Delay | UnitDelay | SampleTime=-1, InitialCondition=1
+[text28:929] text28/驱动系统/Subsystem/appsrule/动力信号判断 | SubSystem
+[text28:930] text28/驱动系统/Subsystem/appsrule/动力信号判断/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:931] text28/驱动系统/Subsystem/appsrule/动力信号判断/If3 | If | IfExpression=u1 >=1, ElseIfExpressions=, ShowElse=on
+[text28:932] text28/驱动系统/Subsystem/appsrule/动力信号判断/Merge3 | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:933] text28/驱动系统/Subsystem/appsrule/动力信号判断/动力信号 | SubSystem
+[text28:934] text28/驱动系统/Subsystem/appsrule/动力信号判断/动力信号/Action Port | ActionPort
+[text28:935] text28/驱动系统/Subsystem/appsrule/动力信号判断/动力信号/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:936] text28/驱动系统/Subsystem/appsrule/动力信号判断/动力信号/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:937] text28/驱动系统/Subsystem/appsrule/动力信号判断/故障信号 | SubSystem
+[text28:938] text28/驱动系统/Subsystem/appsrule/动力信号判断/故障信号/Action Port | ActionPort
+[text28:939] text28/驱动系统/Subsystem/appsrule/动力信号判断/故障信号/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:940] text28/驱动系统/Subsystem/appsrule/动力信号判断/故障信号/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:941] text28/驱动系统/Subsystem/appsrule/动力信号判断/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:942] text28/驱动系统/Subsystem/appsrule/同时油门刹车  | SubSystem
+[text28:943] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /油门 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:944] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /刹车 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:945] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /反馈 | Inport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:946] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /If | If | IfExpression=u1>25&u2==1, ElseIfExpressions=, ShowElse=on
+[text28:947] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /Merge2 | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:948] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /故障 | SubSystem
+[text28:949] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /故障/Action Port | ActionPort
+[text28:950] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /故障/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:951] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /故障/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:952] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常   | SubSystem
+[text28:953] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:954] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /Action Port | ActionPort
+[text28:955] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /If | If | IfExpression=u1>=1, ElseIfExpressions=, ShowElse=on
+[text28:956] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:957] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /故障 | SubSystem
+[text28:958] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /故障/Action Port | ActionPort
+[text28:959] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /故障/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:960] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /故障/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:961] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /正常 | SubSystem
+[text28:962] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /正常/Action Port | ActionPort
+[text28:963] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /正常/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:964] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /正常/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:965] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /正常  /Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:966] text28/驱动系统/Subsystem/appsrule/同时油门刹车 /Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:967] text28/驱动系统/Subsystem/appsrule/无刹车判断 | SubSystem
+[text28:968] text28/驱动系统/Subsystem/appsrule/无刹车判断/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:969] text28/驱动系统/Subsystem/appsrule/无刹车判断/If2 | If | IfExpression=u1==0, ElseIfExpressions=, ShowElse=on
+[text28:970] text28/驱动系统/Subsystem/appsrule/无刹车判断/Merge1 | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:971] text28/驱动系统/Subsystem/appsrule/无刹车判断/有刹车 | SubSystem
+[text28:972] text28/驱动系统/Subsystem/appsrule/无刹车判断/有刹车/Action Port | ActionPort
+[text28:973] text28/驱动系统/Subsystem/appsrule/无刹车判断/有刹车/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:974] text28/驱动系统/Subsystem/appsrule/无刹车判断/有刹车/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:975] text28/驱动系统/Subsystem/appsrule/无刹车判断/没刹车 | SubSystem
+[text28:976] text28/驱动系统/Subsystem/appsrule/无刹车判断/没刹车/Action Port | ActionPort
+[text28:977] text28/驱动系统/Subsystem/appsrule/无刹车判断/没刹车/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:978] text28/驱动系统/Subsystem/appsrule/无刹车判断/没刹车/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:979] text28/驱动系统/Subsystem/appsrule/无刹车判断/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:980] text28/驱动系统/Subsystem/appsrule/油门小于5%判断 | SubSystem
+[text28:981] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:982] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/If1 | If | IfExpression=u1<5, ElseIfExpressions=, ShowElse=on
+[text28:983] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:984] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门大于5% | SubSystem
+[text28:985] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门大于5%/Action Port | ActionPort
+[text28:986] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门大于5%/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:987] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门大于5%/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:988] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门小于5% | SubSystem
+[text28:989] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门小于5%/Action Port | ActionPort
+[text28:990] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门小于5%/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:991] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/油门小于5%/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:992] text28/驱动系统/Subsystem/appsrule/油门小于5%判断/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:993] text28/驱动系统/Subsystem/appsrule/传递函数 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:650] text28/驱动系统/Subsystem/制动与尾灯 | SubSystem
+[text28:651] text28/驱动系统/Subsystem/制动与尾灯/Constant2 | Constant | Value=1, OutDataTypeStr=uint32
+[text28:652] text28/驱动系统/Subsystem/制动与尾灯/Data Type Conversion | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:653] text28/驱动系统/Subsystem/制动与尾灯/If | If | IfExpression=u1 > 550 &u1 < 4600, ElseIfExpressions=, ShowElse=on
+[text28:654] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem | SubSystem
+[text28:655] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem/Action Port | ActionPort
+[text28:656] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:657] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:658] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem1 | SubSystem
+[text28:659] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem1/Action Port | ActionPort
+[text28:660] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem1/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:661] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3093] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem2 | SubSystem
+[text28:3094] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem2/Action Port | ActionPort
+[text28:3095] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem2/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3096] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem2/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3097] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem3 | SubSystem
+[text28:3098] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem3/Action Port | ActionPort
+[text28:3099] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem3/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3100] text28/驱动系统/Subsystem/制动与尾灯/If Action
+Subsystem3/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3092] text28/驱动系统/Subsystem/制动与尾灯/If1 | If | IfExpression=u1 > 850 &u1 < 4600, ElseIfExpressions=, ShowElse=on
+[text28:662] text28/驱动系统/Subsystem/制动与尾灯/MeaModule | SubSystem
+[text28:662:1989] text28/驱动系统/Subsystem/制动与尾灯/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:662:1990] text28/驱动系统/Subsystem/制动与尾灯/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:996] text28/驱动系统/Subsystem/制动与尾灯/MeaModule1 | SubSystem
+[text28:996:1989] text28/驱动系统/Subsystem/制动与尾灯/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:996:1990] text28/驱动系统/Subsystem/制动与尾灯/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3103] text28/驱动系统/Subsystem/制动与尾灯/MeaModule2 | SubSystem
+[text28:3103:1989] text28/驱动系统/Subsystem/制动与尾灯/MeaModule2/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3103:1990] text28/驱动系统/Subsystem/制动与尾灯/MeaModule2/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3101] text28/驱动系统/Subsystem/制动与尾灯/Merge1 | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:663] text28/驱动系统/Subsystem/制动与尾灯/Merge4 | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:665] text28/驱动系统/Subsystem/制动与尾灯/前油压 | S-Function | FunctionName=ec55xx_asislb, Parameters=uint8(channel),sampletime
+[text28:664] text28/驱动系统/Subsystem/制动与尾灯/尾灯 | S-Function | FunctionName=ec55xx_pdpslb, Parameters=uint8(channel),sampletime
+[text28:3102] text28/驱动系统/Subsystem/制动与尾灯/youya
+2 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3105] text28/驱动系统/Subsystem/制动与尾灯/youya
+1
+ | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:597] text28/驱动系统/Subsystem/制动与待驶
+ | SubSystem
+[text28:668] text28/驱动系统/Subsystem/制动与待驶
+/制动
+ | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:600] text28/驱动系统/Subsystem/制动与待驶
+/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:601] text28/驱动系统/Subsystem/制动与待驶
+/Constant1 | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3407] text28/驱动系统/Subsystem/制动与待驶
+/Logical
+Operator | Logic | Operator=AND, Inputs=2
+[text28:602] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule | SubSystem
+[text28:602:1989] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:602:1990] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:610] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule1 | SubSystem
+[text28:610:1989] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:610:1990] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3400] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule2 | SubSystem
+[text28:3400:1989] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule2/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3400:1990] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule2/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3405] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule3 | SubSystem
+[text28:3405:1989] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule3/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3405:1990] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule3/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3406] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule4 | SubSystem
+[text28:3406:1989] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule4/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3406:1990] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule4/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3419] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule5 | SubSystem
+[text28:3419:1989] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule5/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3419:1990] text28/驱动系统/Subsystem/制动与待驶
+/MeaModule5/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3420] text28/驱动系统/Subsystem/制动与待驶
+/Product | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:603] text28/驱动系统/Subsystem/制动与待驶
+/Saturation | Saturate | UpperLimit=1, LowerLimit=0
+[text28:604] text28/驱动系统/Subsystem/制动与待驶
+/Sum | Sum | Inputs=|++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:605] text28/驱动系统/Subsystem/制动与待驶
+/Switch | Switch | Criteria=u2 > Threshold, Threshold=0
+[text28:3396] text28/驱动系统/Subsystem/制动与待驶
+/SwitchInput | S-Function | FunctionName=ec55xx_swislb, Parameters=uint8(channel),sampletime
+[text28:606] text28/驱动系统/Subsystem/制动与待驶
+/Unit Delay | UnitDelay | SampleTime=-1, InitialCondition=0
+[text28:607] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键 | SubSystem
+[text28:608] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:609] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/Constant1 | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3401] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/MeaModule3 | SubSystem
+[text28:3401:1989] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/MeaModule3/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3401:1990] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/MeaModule3/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:995] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/PowerDriverSwitchDiagnosis | S-Function | FunctionName=ec55xx_pdsdslb, Parameters=uint8(channel),sampletime
+[text28:611] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/Switch | Switch | Criteria=u2 > Threshold, Threshold=0
+[text28:613] text28/驱动系统/Subsystem/制动与待驶
+/待驶按键/待驶in | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:669] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活 | SubSystem
+[text28:670] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/制动 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:671] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/按钮 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:672] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If | If | IfExpression=u1 > 0, ElseIfExpressions=, ShowElse=on
+[text28:673] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem | SubSystem
+[text28:674] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem/Action Port | ActionPort
+[text28:675] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:676] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:677] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem1 | SubSystem
+[text28:678] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem1/Action Port | ActionPort
+[text28:679] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem1/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:680] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:681] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem2 | SubSystem
+[text28:682] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem2/Action Port | ActionPort
+[text28:683] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem2/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:684] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem2/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:685] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem3 | SubSystem
+[text28:686] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem3/Action Port | ActionPort
+[text28:687] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem3/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:688] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If Action
+Subsystem3/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:689] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/If1 | If | IfExpression=u1 > 0, ElseIfExpressions=, ShowElse=on
+[text28:690] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/Logical
+Operator | Logic | Operator=AND, Inputs=2
+[text28:691] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:692] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/Merge1 | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:693] text28/驱动系统/Subsystem/制动与待驶
+/待驶激活/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:614] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1 | SubSystem
+[text28:615] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛
+ | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3426] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/安全回路
+ | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:616] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If | If | IfExpression=u1 > 0, ElseIfExpressions=, ShowElse=on
+[text28:617] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem | SubSystem
+[text28:618] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem/Action Port | ActionPort
+[text28:619] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem/Constant2 | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:620] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:621] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem1 | SubSystem
+[text28:622] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem1/Action Port | ActionPort
+[text28:623] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem1/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:624] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:625] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:626] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛 | SubSystem
+[text28:627] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3425] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/安全回路 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:628] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/Constant3 | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:629] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/Data Type Conversion | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:630] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/Data Type Conversion1 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:631] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If | If | IfExpression=u1>0&u1<150, ElseIfExpressions=, ShowElse=on
+[text28:632] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem | SubSystem
+[text28:633] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem/Action Port | ActionPort
+[text28:634] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:635] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:636] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem1 | SubSystem
+[text28:637] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem1/Action Port | ActionPort
+[text28:638] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem1/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:639] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:640] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:3424] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/Product | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:641] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/Sum | Sum | Inputs=|++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:642] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/Unit Delay | UnitDelay | SampleTime=-1, InitialCondition=0
+[text28:643] text28/驱动系统/Subsystem/制动与待驶
+/鸣笛1/鸣笛/蜂鸣器 | S-Function | FunctionName=ec55xx_pdpslb, Parameters=uint8(channel),sampletime
+[text28:644] text28/驱动系统/Subsystem/制动与待驶
+/RES | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:645] text28/驱动系统/Subsystem/制动与待驶
+/EN | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1011] text28/驱动系统/Subsystem/前轮转速 | SubSystem
+[text28:1012] text28/驱动系统/Subsystem/前轮转速/Gain | Gain | Gain=3.6, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1013] text28/驱动系统/Subsystem/前轮转速/轮速 | SubSystem
+[text28:1014] text28/驱动系统/Subsystem/前轮转速/轮速/Data Type Conversion2 | DataTypeConversion | OutDataTypeStr=double, ConvertRealWorld=Real World Value (RWV)
+[text28:1015] text28/驱动系统/Subsystem/前轮转速/轮速/Data Type Conversion3 | DataTypeConversion | OutDataTypeStr=double, ConvertRealWorld=Real World Value (RWV)
+[text28:1016] text28/驱动系统/Subsystem/前轮转速/轮速/Gain1 | Gain | Gain=0.105, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1017] text28/驱动系统/Subsystem/前轮转速/轮速/Gain3 | Gain | Gain=0.105, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1018] text28/驱动系统/Subsystem/前轮转速/轮速/Gain4 | Gain | Gain=0.5, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1019] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule | SubSystem
+[text28:1019:1989] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1019:1990] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1020] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule1 | SubSystem
+[text28:1020:1989] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1020:1990] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1021] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule2 | SubSystem
+[text28:1021:1989] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule2/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1021:1990] text28/驱动系统/Subsystem/前轮转速/轮速/MeaModule2/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1022] text28/驱动系统/Subsystem/前轮转速/轮速/Sum | Sum | Inputs=|++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1023] text28/驱动系统/Subsystem/前轮转速/轮速/Terminator | Terminator
+[text28:1024] text28/驱动系统/Subsystem/前轮转速/轮速/Terminator1 | Terminator
+[text28:1025] text28/驱动系统/Subsystem/前轮转速/轮速/前轮 | Terminator
+[text28:1026] text28/驱动系统/Subsystem/前轮转速/轮速/右前 | S-Function | FunctionName=ec55xx_ffrslb, Parameters=uint8(channel),sampletime
+[text28:1027] text28/驱动系统/Subsystem/前轮转速/轮速/左前 | S-Function | FunctionName=ec55xx_ffrslb, Parameters=uint8(channel),sampletime
+[text28:1028] text28/驱动系统/Subsystem/前轮转速/轮速/右前轮速 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1029] text28/驱动系统/Subsystem/前轮转速/前轮车速 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1030] text28/驱动系统/Subsystem/前轮转速/车速 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1977] text28/驱动系统/Subsystem/滑转率计算 | SubSystem
+[text28:1978] text28/驱动系统/Subsystem/滑转率计算/前轮车速 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1979] text28/驱动系统/Subsystem/滑转率计算/后轮车速  | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1980] text28/驱动系统/Subsystem/滑转率计算/Constant1 | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1981] text28/驱动系统/Subsystem/滑转率计算/Constant2 | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1982] text28/驱动系统/Subsystem/滑转率计算/Sum | Sum | Inputs=|++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1983] text28/驱动系统/Subsystem/滑转率计算/Sum1 | Sum | Inputs=|++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1984] text28/驱动系统/Subsystem/滑转率计算/滑转率计算 | SubSystem
+[text28:1985] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/车速 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1986] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/转速 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1987] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/Divide | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1988] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/MeaModule | SubSystem
+[text28:1988:1989] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1988:1990] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1989] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/Saturation | Saturate | UpperLimit=1, LowerLimit=0
+[text28:1990] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/Sum | Sum | Inputs=|-+, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1991] text28/驱动系统/Subsystem/滑转率计算/滑转率计算/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1992] text28/驱动系统/Subsystem/滑转率计算/滑转率 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1816] text28/驱动系统/Subsystem/电机测速 | SubSystem
+[text28:1817] text28/驱动系统/Subsystem/电机测速/CANReceive | S-Function | FunctionName=ec55xx_canreceiveslb, Parameters=uint8(canmodule-1),uint8(canbuffer-1),uint32(canmessageid),boolean(canmessagetype-1),uint8(datalength),sampletime
+[text28:1818] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4 | SubSystem
+[text28:1819] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/In3 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1820] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/In1 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1821] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/In2 | Inport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1822] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/In4 | Inport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1823] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/function | TriggerPort | TriggerType=function-call
+[text28:1824] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/Terminator1 | Terminator
+[text28:1825] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/Terminator2 | Terminator
+[text28:1826] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/Terminator3 | Terminator
+[text28:1827] text28/驱动系统/Subsystem/电机测速/Function-Call
+Subsystem4/Out2
+ | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1828] text28/驱动系统/Subsystem/电机测速/MeaModule | SubSystem
+[text28:1828:1989] text28/驱动系统/Subsystem/电机测速/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1828:1990] text28/驱动系统/Subsystem/电机测速/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1829] text28/驱动系统/Subsystem/电机测速/ReceiveMessages | SubSystem
+[text28:1830] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1831] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/Active_Discharge_Enab_Ter | Terminator
+[text28:1832] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/Data Type Conversion | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1833] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/Data Type Conversion1 | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1834] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/Gain | Gain | Gain=-1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1835] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/Gain1 | Gain | Gain=-1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1836] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/IGBT_Enable_Feedback_Ter | Terminator
+[text28:1837] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/Livecounter_Ter | Terminator
+[text28:1838] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule | SubSystem
+[text28:1838:1989] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1838:1990] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1839] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule1 | SubSystem
+[text28:1839:1989] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1839:1990] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1840] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/MotorACCurrent_Ter | Terminator
+[text28:1841] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/Precharge_Allow_Ter | Terminator
+[text28:1842] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1 | SubSystem
+[text28:1843] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/input | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1844] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1845] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:1846] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_F | Gain | Gain=1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1847] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:1848] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_O | Constant | Value=0, OutDataTypeStr=single
+[text28:1849] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_S | ArithShift
+[text28:1850] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_Sub | SubSystem
+[text28:1851] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_Sub/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1852] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_Sub/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1853] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_sat | Saturate | UpperLimit=1, LowerLimit=0
+[text28:1854] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enabcv | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1855] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Demux | Demux | Outputs=8
+[text28:1856] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1857] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:1858] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_F | Gain | Gain=1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1859] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:1860] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_O | Constant | Value=0, OutDataTypeStr=single
+[text28:1861] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_S | ArithShift
+[text28:1862] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_Sub | SubSystem
+[text28:1863] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_Sub/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1864] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_Sub/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1865] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_sat | Saturate | UpperLimit=1, LowerLimit=0
+[text28:1866] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedbackcv | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1867] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/LivecounterCS | ArithShift
+[text28:1868] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/LivecounterCS1 | ArithShift
+[text28:1869] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/LivecounterConS | Constant | Value=1, OutDataTypeStr=single
+[text28:1870] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/LivecounterMinus | UnaryMinus
+[text28:1871] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/LivecounterROP | RelationalOperator | Operator=>=
+[text28:1872] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/LivecounterSW | Switch | Criteria=u2 ~= 0, Threshold=0
+[text28:1873] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1874] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:1875] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_F | Gain | Gain=1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1876] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:1877] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_O | Constant | Value=0, OutDataTypeStr=single
+[text28:1878] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_S | ArithShift
+[text28:1879] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_Sub | SubSystem
+[text28:1880] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_Sub/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1881] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_Sub/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1882] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_sat | Saturate | UpperLimit=15, LowerLimit=0
+[text28:1883] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecountercv | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1884] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecountersubcon | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1885] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1886] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:1887] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_F | Gain | Gain=0.1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1888] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:1889] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_O | Constant | Value=0, OutDataTypeStr=single
+[text28:1890] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_S | ArithShift
+[text28:1891] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_Sub | SubSystem
+[text28:1892] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_Sub/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1893] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_Sub/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1894] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_sat | Saturate | UpperLimit=1000, LowerLimit=0
+[text28:1895] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrentcv | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1896] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrentinput6_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1897] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrentinput6_C | Constant | Value=256, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1898] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrentinput6_P | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1899] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueCS | ArithShift
+[text28:1900] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueCS1 | ArithShift
+[text28:1901] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueConS | Constant | Value=1, OutDataTypeStr=single
+[text28:1902] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueMinus | UnaryMinus
+[text28:1903] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueROP | RelationalOperator | Operator=>=
+[text28:1904] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueSW | Switch | Criteria=u2 ~= 0, Threshold=0
+[text28:1905] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1906] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:1907] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_F | Gain | Gain=1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1908] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:1909] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_O | Constant | Value=-5000, OutDataTypeStr=single
+[text28:1910] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_S | ArithShift
+[text28:1911] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_Sub | SubSystem
+[text28:1912] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_Sub/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1913] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_Sub/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1914] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_sat | Saturate | UpperLimit=5000, LowerLimit=-5000
+[text28:1915] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorquecv | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1916] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueinput4_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1917] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueinput4_C | Constant | Value=256, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1918] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorqueinput4_P | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1919] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorquesubcon | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1920] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_SpeedCS | ArithShift
+[text28:1921] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_SpeedCS1 | ArithShift
+[text28:1922] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_SpeedConS | Constant | Value=1, OutDataTypeStr=single
+[text28:1923] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_SpeedMinus | UnaryMinus
+[text28:1924] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_SpeedROP | RelationalOperator | Operator=>=
+[text28:1925] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_SpeedSW | Switch | Criteria=u2 ~= 0, Threshold=0
+[text28:1926] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1927] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:1928] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_F | Gain | Gain=1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1929] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:1930] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_O | Constant | Value=-15000, OutDataTypeStr=single
+[text28:1931] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_S | ArithShift
+[text28:1932] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_Sub | SubSystem
+[text28:1933] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_Sub/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1934] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_Sub/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1935] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_sat | Saturate | UpperLimit=15000, LowerLimit=-15000
+[text28:1936] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speedcv | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1937] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speedinput2_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1938] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speedinput2_C | Constant | Value=256, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1939] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speedinput2_P | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1940] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speedsubcon | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1941] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_Ad | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1942] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_Convert | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:1943] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_F | Gain | Gain=1, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1944] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_L | S-Function | FunctionName=sfix_bitop, Parameters=UseBitMask,NumInputPorts,BitMask,BitMaskRealWorld,logicop
+[text28:1945] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_O | Constant | Value=0, OutDataTypeStr=single
+[text28:1946] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_S | ArithShift
+[text28:1947] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_Sub | SubSystem
+[text28:1948] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_Sub/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1949] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_Sub/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1950] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_sat | Saturate | UpperLimit=1, LowerLimit=0
+[text28:1951] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allowcv | DataTypeConversion | OutDataTypeStr=Inherit: Inherit via back propagation, ConvertRealWorld=Real World Value (RWV)
+[text28:1952] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Precharge_Allow_Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1953] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorTorque_Out | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1954] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/MotorACCurrent_Out | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1955] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Motor_Speed_Out | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1956] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Livecounter_Out | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1957] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/IGBT_Enable_Feedback_Out | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1958] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/resive1/Active_Discharge_Enab_Out | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1959] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/电机转速 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1960] text28/驱动系统/Subsystem/电机测速/ReceiveMessages/电机扭矩 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1961] text28/驱动系统/Subsystem/电机测速/转速转轮速 | SubSystem
+[text28:1962] text28/驱动系统/Subsystem/电机测速/转速转轮速/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:1963] text28/驱动系统/Subsystem/电机测速/转速转轮速/Constant | Constant | Value=4.07, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1964] text28/驱动系统/Subsystem/电机测速/转速转轮速/Constant1 | Constant | Value=0.377, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1965] text28/驱动系统/Subsystem/电机测速/转速转轮速/Constant2 | Constant | Value=0.234, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1966] text28/驱动系统/Subsystem/电机测速/转速转轮速/Constant3 | Constant | Value=3.6, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2772] text28/驱动系统/Subsystem/电机测速/转速转轮速/Constant4 | Constant | Value=-1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:1967] text28/驱动系统/Subsystem/电机测速/转速转轮速/Divide | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1968] text28/驱动系统/Subsystem/电机测速/转速转轮速/Divide1 | Product | Inputs=*/*, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1969] text28/驱动系统/Subsystem/电机测速/转速转轮速/Product | Product | Inputs=3, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:1970] text28/驱动系统/Subsystem/电机测速/转速转轮速/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1971] text28/驱动系统/Subsystem/电机测速/后轮速度 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1972] text28/驱动系统/Subsystem/电机测速/电机转速 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:1973] text28/驱动系统/Subsystem/电机测速/电机扭矩 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2958] text28/驱动系统/Subsystem/角度传感器 | SubSystem
+[text28:2959] text28/驱动系统/Subsystem/角度传感器/MeaModule | SubSystem
+[text28:2959:1989] text28/驱动系统/Subsystem/角度传感器/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2959:1990] text28/驱动系统/Subsystem/角度传感器/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3130] text28/驱动系统/Subsystem/角度传感器/MeaModule1 | SubSystem
+[text28:3130:1989] text28/驱动系统/Subsystem/角度传感器/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3130:1990] text28/驱动系统/Subsystem/角度传感器/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3131] text28/驱动系统/Subsystem/角度传感器/MeaModule2 | SubSystem
+[text28:3131:1989] text28/驱动系统/Subsystem/角度传感器/MeaModule2/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3131:1990] text28/驱动系统/Subsystem/角度传感器/MeaModule2/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2960] text28/驱动系统/Subsystem/角度传感器/MeaModule4 | SubSystem
+[text28:2960:1989] text28/驱动系统/Subsystem/角度传感器/MeaModule4/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2960:1990] text28/驱动系统/Subsystem/角度传感器/MeaModule4/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2961] text28/驱动系统/Subsystem/角度传感器/角度1 | S-Function | FunctionName=ec55xx_asislb, Parameters=uint8(channel),sampletime
+[text28:2962] text28/驱动系统/Subsystem/角度传感器/角度2 | S-Function | FunctionName=ec55xx_asislb, Parameters=uint8(channel),sampletime
+[text28:2963] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号 | SubSystem
+[text28:2964] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/角度1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2965] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/角度2 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2966] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/Abs | Abs
+[text28:3129] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/Constant | Constant | Value=100, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2967] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule | SubSystem
+[text28:2967:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2967:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2968] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule1 | SubSystem
+[text28:2968:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2968:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3125] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule3 | SubSystem
+[text28:3125:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule3/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3125:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/MeaModule3/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2969] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/Product | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3128] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/Product1 | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:2970] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断 | SubSystem
+[text28:2971] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2972] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem8 | SubSystem
+[text28:2973] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem8/Action Port | ActionPort
+[text28:2974] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem8/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2975] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem8/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2976] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem9 | SubSystem
+[text28:2977] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem9/Action Port | ActionPort
+[text28:2978] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem9/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2979] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If Action
+Subsystem9/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2980] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/If4 | If | IfExpression=u1 >10, ElseIfExpressions=, ShowElse=on
+[text28:2981] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/Merge4 | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:2982] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2983] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+ | SubSystem
+[text28:3117] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/角度1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2985] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/角度2 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3122] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Abs | Abs
+[text28:3132] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Abs1 | Abs
+[text28:2986] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Add | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3115] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Constant1 | Constant | Value=850, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2988] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Constant10 | Constant | Value=6, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Constant11 | Constant | Value=0.00006358, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Constant2 | Constant | Value=970, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2991] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Constant3 | Constant | Value=20, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:2992] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Divide | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:2993] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Gain1 | Gain | Gain=100, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:2994] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Gain10 | Gain | Gain=0.5, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:2995] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Gain2 | Gain | Gain=1/88, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:2996] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Gain3 | Gain | Gain=1/89.25, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:2997] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule1 | SubSystem
+[text28:2997:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2997:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2998] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule2 | SubSystem
+[text28:2998:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule2/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2998:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule2/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2999] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule3 | SubSystem
+[text28:2999:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule3/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2999:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule3/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3121] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule4 | SubSystem
+[text28:3121:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule4/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3121:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule4/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3137] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule5 | SubSystem
+[text28:3137:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule5/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3137:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule5/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3139] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule6 | SubSystem
+[text28:3139:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule6/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3139:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/MeaModule6/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3000] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Product | Product | Inputs=2, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3116] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Sum1 | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3002] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Sum3 | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3003] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/Sum6 | Sum | Inputs=++, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3004] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+ | SubSystem
+[text28:3005] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3006] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If | If | IfExpression=u1 >= 1, ElseIfExpressions=, ShowElse=on
+[text28:3007] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem | SubSystem
+[text28:3008] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3009] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem/Action Port | ActionPort
+[text28:3010] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3011] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem1 | SubSystem
+[text28:3012] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem1/Action Port | ActionPort
+[text28:3013] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem1/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3014] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3015] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:3016] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/空量程
+/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3017] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值 | SubSystem
+[text28:3018] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3019] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If | If | IfExpression=u1 >=  1, ElseIfExpressions=, ShowElse=on
+[text28:3020] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem | SubSystem
+[text28:3021] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3022] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem/Action Port | ActionPort
+[text28:3023] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3024] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem1 | SubSystem
+[text28:3025] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem1/Action Port | ActionPort
+[text28:3026] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem1/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3027] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3028] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:3029] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3030] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2 | SubSystem
+[text28:3031] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3032] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If | If | IfExpression=u1 >=  0, ElseIfExpressions=, ShowElse=on
+[text28:3033] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem | SubSystem
+[text28:3034] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3035] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem/Action Port | ActionPort
+[text28:3036] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3037] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem1 | SubSystem
+[text28:3038] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem1/Action Port | ActionPort
+[text28:3039] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem1/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3040] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3041] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:3042] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/阈值2/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3043] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/油门数值 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3044] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值
+/油门百分比 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3045] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+ | SubSystem
+[text28:3046] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3047] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度2 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3123] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule1 | SubSystem
+[text28:3123:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3123:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3124] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule2 | SubSystem
+[text28:3124:1989] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule2/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3124:1990] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/MeaModule2/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3051] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/Sum2 | Sum | Inputs=+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3052] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1 | SubSystem
+[text28:3053] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1/角度2 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3054] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1/Product | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3055] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1/Sum1 | Sum | Inputs=|+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3056] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1/初始值1 | Constant | Value=960, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3057] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1/总值1 | Constant | Value=1800, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3058] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3059] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2 | SubSystem
+[text28:3060] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2/角度1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3061] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2/Product | Product | Inputs=*/, Multiplication=Element-wise(.*), OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3119] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2/Sum1 | Sum | Inputs=|+-, OutDataTypeStr=Inherit: Inherit via internal rule
+[text28:3118] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2/初始值1 | Constant | Value=830, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3064] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2/总值1 | Constant | Value=1780, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3065] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/角度归零化百分比2/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3066] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化
+/Out2 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3067] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3068] text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门百分比 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3069] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常 | SubSystem
+[text28:3070] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/角度1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3071] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/角度2 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:3072] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If | If | IfExpression=u2 > 800 & u1>600 &u2 <2900&u1<2700, ElseIfExpressions=, ShowElse=on
+[text28:3073] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem | SubSystem
+[text28:3074] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem/Action Port | ActionPort
+[text28:3075] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem/Constant | Constant | Value=0, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3076] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3077] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem1 | SubSystem
+[text28:3078] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem1/Action Port | ActionPort
+[text28:3079] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem1/Constant | Constant | Value=1, OutDataTypeStr=Inherit: Inherit from 'Constant value'
+[text28:3080] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/If Action
+Subsystem1/Out1 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3081] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/Merge | Merge | Inputs=2, AllowUnequalInputPortWidths=off
+[text28:3082] text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常/油门范围 | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3084] text28/驱动系统/Subsystem/角度传感器/油门数值
+ | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3085] text28/驱动系统/Subsystem/角度传感器/油门百分比 | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:3086] text28/驱动系统/Subsystem/角度传感器/系统关键信号判断 | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:581] text28/驱动系统/Subsystem/油门输出
+ | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:648] text28/驱动系统/Subsystem/RES | Outport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:649] text28/驱动系统/Subsystem/Enble
+ | Outport | Port=3, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2010] text28/驱动系统/Subsystem/车速
+ | Outport | Port=4, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2030] text28/驱动系统/Subsystem/滑转率 | Outport | Port=5, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2011] text28/驱动系统/Subsystem/电机转速 | Outport | Port=6, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2012] text28/驱动系统/Subsystem/电机扭矩 | Outport | Port=7, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2932] text28/驱动系统/Subsystem/系统关键信号 | Outport | Port=8, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2933] text28/驱动系统/Subsystem2 | SubSystem
+[text28:2934] text28/驱动系统/Subsystem2/In1 | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2935] text28/驱动系统/Subsystem2/In2 | Inport | Port=2, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2936] text28/驱动系统/Subsystem2/Constant4 | Constant | Value=1, OutDataTypeStr=uint32
+[text28:2937] text28/驱动系统/Subsystem2/Data Type Conversion2 | DataTypeConversion | OutDataTypeStr=uint32, ConvertRealWorld=Real World Value (RWV)
+[text28:2938] text28/驱动系统/Subsystem2/Logical
+Operator | Logic | Operator=AND, Inputs=2
+[text28:2939] text28/驱动系统/Subsystem2/MeaModule1 | SubSystem
+[text28:2939:1989] text28/驱动系统/Subsystem2/MeaModule1/In | Inport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1
+[text28:2939:1990] text28/驱动系统/Subsystem2/MeaModule1/Out | Outport | Port=1, OutDataTypeStr=Inherit: auto, SampleTime=-1, InitialOutput=[]
+[text28:2940] text28/驱动系统/Subsystem2/安全出 | S-Function | FunctionName=ec55xx_pdpslb, Parameters=uint8(channel),sampletime
+[text28:3087] text28/驱动系统/Terminator | Terminator
+[text28:3088] text28/驱动系统/Terminator1 | Terminator
+[text28:3089] text28/驱动系统/Terminator2 | Terminator
+[text28:3090] text28/驱动系统/Terminator3 | Terminator
+[text28:2000] text28/驱动系统/WDGFeed | S-Function | FunctionName=ec55xx_wdgfeedslb, Parameters=sampletime
+
+INSPECT_DONE

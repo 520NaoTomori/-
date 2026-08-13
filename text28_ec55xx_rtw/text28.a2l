@@ -1,0 +1,1150 @@
+/******************************************************************************
+ *
+ *  ASAP2 file:     text28.a2l
+ *
+ * Code generation for model "text28".
+ *
+ * Model version              : 1.173
+ * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
+ * C source code generated on : Sat Oct 05 10:25:29 2024
+ * 
+ * Target selection: ec55xx.tlc
+ * Embedded hardware selection: Freescale MPC5500
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ *
+ * (add additional file header information here)
+ *
+ ******************************************************************************/
+
+ASAP2_VERSION  1 31   /* Version 1.31 */
+
+/begin PROJECT ECUCoderProject "ECUCoder Project"
+  
+  /begin HEADER "Header Comments go here"
+    
+  /end HEADER
+  
+  
+  /begin MODULE ModuleName  "No Comment"
+    
+    /begin MOD_PAR "No Comment"
+      
+    /end MOD_PAR
+    
+    /begin MOD_COMMON  "No Comment" 
+      BYTE_ORDER     MSB_FIRST
+    /end MOD_COMMON
+    /begin RECORD_LAYOUT Scalar_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_SWORD
+      FNC_VALUES 1 SWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Scalar_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_SLONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT32_IEEE
+      AXIS_PTS_X  1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT64_IEEE
+      AXIS_PTS_X  1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT32_IEEE
+      AXIS_PTS_X 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_FLOAT64_IEEE
+      FNC_VALUES  1  FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT64_IEEE
+      AXIS_PTS_X 1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      bms_sign1
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@bms_sign1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      daishi
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@daishi@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      daishi_fanhui
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@daishi_fanhui@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      daishi_chu
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@daishi_chu@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      enable_sign
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@enable_sign@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      apps_rule
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@apps_rule@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      zuizhong
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@zuizhong@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      app_scs
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@app_scs@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      left_speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@left_speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      right_speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@right_speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      car_speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@car_speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      motor_speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@motor_speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      rear_speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@rear_speed@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      huazhuan
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@huazhuan@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      motor_torque
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@motor_torque@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      baifenbi1
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@baifenbi1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      baifenbi2
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@baifenbi2@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      baifenbi3
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@baifenbi3@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      jiaodu1
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@jiaodu1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      jiaodu2
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@jiaodu2@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      apple
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@apple@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      app_konghou
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@app_konghou@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      app_add2
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@app_add2@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      apps_erro
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@apps_erro@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      app_date1
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@app_date1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      app_date2
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@app_date2@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      app_baifenbi
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@app_baifenbi@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      youya2
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@youya2@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      youya3
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      text28_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@youya3@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      MotorTemp
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      text28_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@MotorTemp@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      McuTemp
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      text28_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@McuTemp@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      baojing
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      text28_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@baojing@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      zhuangtai
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      text28_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@zhuangtai@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      soc
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      text28_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@soc@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      dianya
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      text28_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@dianya@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      keshi
+      /* Long identifier        */      ""
+      /* Data type              */      ULONG
+      /* Conversion method      */      text28_CM_uint32
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      0xFFFFFFFF
+      ECU_ADDRESS                       @MemoryAddress@keshi@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      anquan_out
+      /* Long identifier        */      ""
+      /* Data type              */      ULONG
+      /* Conversion method      */      text28_CM_uint32
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      0xFFFFFFFF
+      ECU_ADDRESS                       @MemoryAddress@anquan_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      jiaodu_11111
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      text28_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       @MemoryAddress@jiaodu_11111@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      jiaodu_2222
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      text28_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       @MemoryAddress@jiaodu_2222@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      youya1
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      text28_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       @MemoryAddress@youya1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      bms_canok
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      text28_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       @MemoryAddress@bms_canok@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      daishi_11
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      text28_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       @MemoryAddress@daishi_11@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      CAN_ok
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      text28_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       @MemoryAddress@CAN_ok@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      FAN_sign
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      text28_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@FAN_sign@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      bms_sign
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      text28_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@bms_sign@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      aqhl
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      text28_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@aqhl@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      daishi_out
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      text28_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       @MemoryAddress@daishi_out@
+    /end MEASUREMENT
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      text28_CM_double
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%15.10"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      text28_CM_single
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%8.6"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      text28_CM_uint32
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%10.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      text28_CM_uint16
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%5.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      text28_CM_uint8
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%3.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      text28_CM_boolean
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%1.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin GROUP 
+      /* Name                   */       text28
+      /* Long identifier        */       "text28"
+      /* Root                    */       ROOT
+      /begin SUB_GROUP
+        Root_Function_Call_Subsystem4
+        Root_Function_Call_Subsystem7
+        Root_____
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Function_Call_Subsystem4
+      /* Long identifier        */       "text28/Function-Call Subsystem4"
+      /begin SUB_GROUP
+        S3_ReceiveMessages
+        S3___
+        S3_can___
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        bms_canok
+        bms_sign
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Function_Call_Subsystem7
+      /* Long identifier        */       "text28/Function-Call Subsystem7"
+      /begin SUB_GROUP
+        S4_MCU_STATUS_2
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        FAN_sign
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_____
+      /* Long identifier        */       "text28/驱动系统"
+      /begin SUB_GROUP
+        S6_MCU_can__
+        S6_Subsystem
+        S6_Subsystem2
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3_ReceiveMessages
+      /* Long identifier        */       "text28/Function-Call Subsystem4/ReceiveMessages"
+      /begin SUB_GROUP
+        S19_BMS_HCU_INFO
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3_can___
+      /* Long identifier        */       "text28/Function-Call Subsystem4/can断线 "
+      /begin REF_MEASUREMENT
+        bms_sign1
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3___
+      /* Long identifier        */       "text28/Function-Call Subsystem4/可视"
+      /begin REF_MEASUREMENT
+        keshi
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S4_MCU_STATUS_2
+      /* Long identifier        */       "text28/Function-Call Subsystem7/MCU_STATUS_2"
+      /begin SUB_GROUP
+        S45_MCU_STATUS_2
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S6_MCU_can__
+      /* Long identifier        */       "text28/驱动系统/MCU_can总线"
+      /begin REF_MEASUREMENT
+        CAN_ok
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S6_Subsystem
+      /* Long identifier        */       "text28/驱动系统/Subsystem"
+      /begin SUB_GROUP
+        S80_____
+        S80______
+        S80_______
+        S80_appsrule
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S6_Subsystem2
+      /* Long identifier        */       "text28/驱动系统/Subsystem2"
+      /begin REF_MEASUREMENT
+        anquan_out
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S19_BMS_HCU_INFO
+      /* Long identifier        */       "text28/Function-Call Subsystem4/ReceiveMessages/BMS_HCU_INFO"
+      /begin REF_MEASUREMENT
+        baojing
+        dianya
+        soc
+        zhuangtai
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S45_MCU_STATUS_2
+      /* Long identifier        */       "text28/Function-Call Subsystem7/MCU_STATUS_2/MCU_STATUS_2"
+      /begin REF_MEASUREMENT
+        McuTemp
+        MotorTemp
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S80_appsrule
+      /* Long identifier        */       "text28/驱动系统/Subsystem/appsrule"
+      /begin SUB_GROUP
+        S97_______
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        zuizhong
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S80______
+      /* Long identifier        */       "text28/驱动系统/Subsystem/制动与尾灯"
+      /begin SUB_GROUP
+        S101______
+        S103__________
+        S103________________
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        jiaodu_11111
+        jiaodu_2222
+        youya1
+        youya2
+        youya3
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S80_______
+      /* Long identifier        */       "text28/驱动系统/Subsystem/制动与待驶 "
+      /begin SUB_GROUP
+        S99_____
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        aqhl
+        daishi_chu
+        daishi_fanhui
+        enable_sign
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S80_____
+      /* Long identifier        */       "text28/驱动系统/Subsystem/前轮转速"
+      /begin SUB_GROUP
+        S100___
+        S102_ReceiveMessages
+        S102______
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S97_______
+      /* Long identifier        */       "text28/驱动系统/Subsystem/appsrule/动力信号判断"
+      /begin REF_MEASUREMENT
+        apps_rule
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S99_____
+      /* Long identifier        */       "text28/驱动系统/Subsystem/制动与待驶 /待驶按键"
+      /begin REF_MEASUREMENT
+        daishi
+        daishi_11
+        daishi_out
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S100___
+      /* Long identifier        */       "text28/驱动系统/Subsystem/前轮转速/轮速"
+      /begin REF_MEASUREMENT
+        car_speed
+        left_speed
+        right_speed
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S101______
+      /* Long identifier        */       "text28/驱动系统/Subsystem/滑转率计算/滑转率计算"
+      /begin REF_MEASUREMENT
+        huazhuan
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S102_ReceiveMessages
+      /* Long identifier        */       "text28/驱动系统/Subsystem/电机测速/ReceiveMessages"
+      /begin REF_MEASUREMENT
+        motor_speed
+        motor_torque
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S102______
+      /* Long identifier        */       "text28/驱动系统/Subsystem/电机测速/转速转轮速"
+      /begin REF_MEASUREMENT
+        rear_speed
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S103________________
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号"
+      /begin SUB_GROUP
+        S170______
+        S170_______
+        S170________
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        app_date2
+        baifenbi3
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S103__________
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器是否正常"
+      /begin REF_MEASUREMENT
+        app_scs
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S170________
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/不可靠信号判断"
+      /begin REF_MEASUREMENT
+        apps_erro
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S170______
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值 "
+      /begin SUB_GROUP
+        S176___
+        S176___2
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        app_add2
+        app_konghou
+        apple
+        jiaodu1
+        jiaodu2
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S170_______
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化 "
+      /begin SUB_GROUP
+        S177_________1
+        S177_________2
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S176___
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值 /阈值"
+      /begin REF_MEASUREMENT
+        app_date1
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S176___2
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/油门数值 /阈值2"
+      /begin REF_MEASUREMENT
+        app_baifenbi
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S177_________1
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化 /角度归零化百分比1"
+      /begin REF_MEASUREMENT
+        baifenbi2
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S177_________2
+      /* Long identifier        */       "text28/驱动系统/Subsystem/角度传感器/角度传感器数据处理及不可靠信号/百分比转化 /角度归零化百分比2"
+      /begin REF_MEASUREMENT
+        baifenbi1
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    
+  /end MODULE
+  
+  
+/end PROJECT
+/* (add any file trailer comments here) */
+/* EOF text28.a2l */

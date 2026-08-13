@@ -1,0 +1,4 @@
+Script updated.
+SAVE_OK
+UPDATE_OK
+RULES_UPDATE_DONE
